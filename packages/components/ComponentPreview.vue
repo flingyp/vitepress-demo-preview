@@ -24,7 +24,9 @@ console.log(showCode);
 
 <template>
   <div :class="[ns.e('container')]">
-    <section :class="[ns.bem('preview')]">预览</section>
+    <section :class="[ns.bem('preview')]">
+      <slot> </slot>
+    </section>
     <section :class="[ns.bem('description')]">
       <div :class="[ns.bem('description', 'title')]">
         <span>标题</span>
