@@ -5,7 +5,7 @@ export { ComponentPreview };
 
 export default {
     install(app: App) {
-        app.component('demo', ComponentPreview)
+        app.component('preview', ComponentPreview)
     }
 }
 

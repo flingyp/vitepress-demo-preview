@@ -6,9 +6,10 @@
   "scripts": {
     "component:dev": "pnpm --filter=vitepress-component-preview-component dev",
     "component:build": "pnpm --filter=vitepress-component-preview-component build",
-    "docs:dev": "pnpm --filter=vitepress-component-preview-docs dev",
+    "docs:dev": "pnpm plugin:build && pnpm --filter=vitepress-component-preview-docs dev",
     "docs:build": "pnpm --filter=vitepress-component-preview-docs build",
     "docs:serve": "pnpm --filter=vitepress-component-preview-docs serve",
+    "plugin:build": "pnpm --filter=vitepress-component-preview-plugin build",
     "changeset": "changeset",
     "changeset-version": "changeset version"
   },
