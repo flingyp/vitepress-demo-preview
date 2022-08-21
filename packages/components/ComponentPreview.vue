@@ -1,10 +1,12 @@
 <script lang="ts" setup>
+import { ref } from "vue";
 import { useNameSpace } from "./hooks/use-namespaces";
 
 const ns = useNameSpace();
 
 interface DemoBlockProps {
-  path: string;
+  code: string;
+  showCode: string;
   title: string;
   description: string;
 }
@@ -14,7 +16,10 @@ const props = withDefaults(defineProps<DemoBlockProps>(), {
   description: "描述内容",
 });
 
-console.log(props);
+const sourceCode = ref(decodeURIComponent(props.code));
+const showCode = ref(decodeURIComponent(props.showCode));
+console.log(sourceCode);
+console.log(showCode);
 </script>
 
 <template>
@@ -31,7 +36,7 @@ console.log(props);
       <div :class="[ns.bem('description', 'handle-btn')]">操作按钮</div>
     </section>
     <section :class="[ns.bem('source')]">
-      <div>源码内容</div>
+      <div v-html="showCode" class="language-vue"></div>
     </section>
   </div>
 </template>

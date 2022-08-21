@@ -4,7 +4,7 @@
 
 <div>22</div>
 
-<preview path="./demoShow.vue"></preview>
+<preview path="./demoShow.vue" title="演示Demo"></preview>
 
 测试内容
 
@@ -15,3 +15,7 @@
 你好
 
 :::
+
+```vue
+console.log(2222222);
+```

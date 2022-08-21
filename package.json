@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "component:dev": "pnpm --filter=vitepress-component-preview-component dev",
+    "dev": "pnpm plugin:build && pnpm component:build && pnpm docs:dev",
     "component:build": "pnpm --filter=vitepress-component-preview-component build",
-    "docs:dev": "pnpm plugin:build && pnpm --filter=vitepress-component-preview-docs dev",
+    "docs:dev": "pnpm --filter=vitepress-component-preview-docs dev",
     "docs:build": "pnpm --filter=vitepress-component-preview-docs build",
     "docs:serve": "pnpm --filter=vitepress-component-preview-docs serve",
     "plugin:build": "pnpm --filter=vitepress-component-preview-plugin build",

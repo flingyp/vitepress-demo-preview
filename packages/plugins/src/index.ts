@@ -1,15 +1,21 @@
+import MarkdownIt from "markdown-it";
+import Renderer from "markdown-it/lib/renderer";
+import Token from "markdown-it/lib/token";
+import { transformPreview, isCheckPreviewCom } from "./transformPreview";
+
 export const transformPreviewComponent = (md: any) => {
   const defaultHtmlBlockRender = md.renderer.rules.html_inline;
-  console.log("md", md.renderer.rules);
   md.renderer.rules.html_inline = (
-    tokens: any,
-    idx: any,
-    options: any,
+    tokens: Token[],
+    idx: number,
+    options: MarkdownIt.Options,
     env: any,
-    renderer: any
+    self: Renderer
   ) => {
     const token = tokens[idx];
-    console.log("token->", token);
-    return defaultHtmlBlockRender(tokens, idx, options, env, renderer);
+    if (isCheckPreviewCom.test(token.content)) {
+      return transformPreview(md, token, md.__path);
+    }
+    return defaultHtmlBlockRender(tokens, idx, options, env, self);
   };
 };
