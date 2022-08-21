@@ -10,6 +10,11 @@ const scriptLangTsRE = /<\s*script[^>]*\blang=['"]ts['"][^>]*/;
 const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/;
 const scriptClientRE = /<\s*script[^>]*\bclient\b[^>]*/;
 
+export interface DefaultProps {
+  path: string;
+  title: string;
+  description: string;
+}
 /**
  * 源码 => 代码块
  * @param mdInstance
@@ -21,57 +26,62 @@ export const transformHighlightCode = (
   mdInstance: MarkdownRenderer,
   sourceCode: string,
   suffix: string
-) => {
-  return mdInstance.options.highlight!(sourceCode, suffix, "");
-};
+) => mdInstance.options.highlight!(sourceCode, suffix, "");
 
+/**
+ * 注入 script 脚本
+ * @param mdInstance
+ * @param absolutePath
+ * @param componentName
+ */
 export const injectComponentImportScript = (
   mdInstance: MarkdownRenderer,
   absolutePath: string,
   componentName: string
 ) => {
-  const importCode = `import ${componentName} from '${absolutePath}'`;
+  const importCode = `import ${componentName} from '${absolutePath}'`.trim();
+
+  if (!mdInstance.__data.hoistedTags) mdInstance.__data.hoistedTags = [];
+
   const hoistedTags: string[] = mdInstance.__data.hoistedTags || [];
+
   const isUsingTs =
     hoistedTags.findIndex((tag) => scriptLangTsRE.test(tag)) > -1;
+
   const existingSetupScriptIndex = hoistedTags.findIndex((tag) => {
     return (
       scriptRE.test(tag) && scriptSetupRE.test(tag) && !scriptClientRE.test(tag)
     );
   });
 
-  console.log("isUsingTs->", isUsingTs);
-  console.log("existingSetupScriptIndex->", existingSetupScriptIndex);
-
+  // 原Markdown文件中存在 <script><script> 、 <script setup><script> 或 <script setup lang="ts"><script> 标签
   if (existingSetupScriptIndex > -1) {
     const tagSrc = hoistedTags[existingSetupScriptIndex];
     hoistedTags[existingSetupScriptIndex] = tagSrc.replace(
       scriptRE,
-      `<script> ${importCode} </script>`
+      ` ${importCode} </script>`
     );
   } else {
     hoistedTags.unshift(`
-      <script ${isUsingTs ? 'lang="ts"' : ""} setup>
+      <script setup ${isUsingTs ? 'lang="ts"' : ""}>
         ${importCode}
       </script>
     `);
   }
-
-  console.log("hoistedTags", hoistedTags);
 };
 
-export interface DefaultProps {
-  path: string;
-  title: string;
-  description: string;
-}
-
+/**
+ * 编译预览组件
+ * @param md
+ * @param token
+ * @param mdPath
+ * @returns
+ */
 export const transformPreview = (
   md: MarkdownRenderer,
   token: Token,
   mdPath: string
 ) => {
-  console.log(token);
   const props = token.content.match(isCheckPreviewCom)![1];
   const componentProps: DefaultProps = {
     path: "",
@@ -84,16 +94,20 @@ export const transformPreview = (
     // @ts-ignore
     componentProps[_item[0]] = _item[1];
   });
+  // 组件绝对路径
   const componentPath = resolve(dirname(mdPath), componentProps.path || ".");
   const _dirArr = componentProps.path.split("/");
+  // 组件名
   const componentName =
     _dirArr[_dirArr.length - 1].split(".")[0] || defaultComponentName;
+  console.log(componentName);
+
+  // 后缀名
   const suffixName = componentPath.substring(
     componentPath.lastIndexOf(".") + 1
   );
-  console.log(componentName);
-  console.log(componentPath);
-  console.log(componentProps);
+
+  injectComponentImportScript(md, componentProps.path, componentName);
 
   // 组件源码
   const componentSourceCode = readFileSync(componentPath, {
@@ -105,18 +119,6 @@ export const transformPreview = (
     componentSourceCode,
     suffixName
   );
-  // console.log("compileHighlightCode->", compileHighlightCode);
-
-  // TODO: 往Markdown 文件注入下面这段脚本文件
-  // <script setup lang="ts">
-  //     import demoShow from './demoShow.vue'
-  // </script>
-  // TODO: 添加组件到插槽中
-  // <preview path="./demoShow.vue" title="演示Demo">
-  //     <demoShow></demoShow>
-  // </preview>
-
-  injectComponentImportScript(md, componentProps.path, componentName);
 
   const sourceCode = `<preview code=${encodeURIComponent(
     componentSourceCode
@@ -126,8 +128,6 @@ export const transformPreview = (
 
     <${componentName}></${componentName}>
   </preview>`;
-
-  // console.log("md", md);
 
   return sourceCode;
 };

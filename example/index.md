@@ -2,10 +2,6 @@
 
 ## Vitepress-Component-Preview
 
-<div>22</div>
-
-<preview path="./demoShow.vue" title="演示Demo"></preview>
-
 测试内容
 
 ### Component
@@ -16,6 +12,4 @@
 
 :::
 
-```vue
-console.log(2222222);
-```
+<preview path="./DemoShow.vue" title="演示Demo"></preview>
