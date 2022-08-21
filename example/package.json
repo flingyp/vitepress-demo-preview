@@ -1,5 +1,6 @@
 {
-  "name": "vitepress-component-preview-plugin",
+  "name": "vitepress-component-preview-docs",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
