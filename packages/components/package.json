@@ -2,11 +2,35 @@
   "name": "vitepress-component-preview-component",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "packageManager": "pnpm@7.6.0",
+  "type": "module",
+  "main": "./dist/preview-component.umd.cjs",
+  "module": "./dist/preview-component.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/preview-component.js",
+      "require": "./dist/preview-component.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite build --watch",
+    "build": "vite build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "FlyPeng",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.3",
+    "sass": "^1.54.5",
+    "vite": "^3.0.9",
+    "vite-plugin-dts": "^1.4.1"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  }
 }

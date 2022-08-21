@@ -1,0 +1,49 @@
+@import "./various.scss";
+
+.#{$defaultPrefix}__container > * {
+  font-size: 14px;
+}
+
+.#{$defaultPrefix}__container {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--component-preview-border);
+
+  .#{$defaultPrefix}-preview,
+  .#{$defaultPrefix}-description,
+  .#{$defaultPrefix}-source {
+    width: 100%;
+  }
+}
+
+.#{$defaultPrefix}-preview {
+  padding: 20px 20px 30px 20px;
+}
+
+.#{$defaultPrefix}-description {
+  .#{$defaultPrefix}-description__title {
+    width: 100%;
+    border-top: 1px solid var(--component-preview-border);
+    position: relative;
+
+    & span:first-of-type {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+    }
+  }
+
+  .#{$defaultPrefix}-description__content {
+    padding: 20px;
+  }
+
+  .#{$defaultPrefix}-description__split-line {
+    border-bottom: 1px dashed var(--component-preview-border);
+  }
+
+  .#{$defaultPrefix}-description__handle-btn {
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+}

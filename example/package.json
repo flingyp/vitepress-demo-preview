@@ -5,9 +5,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.3",
+    "vite": "^3.0.9",
+    "vitepress": "1.0.0-alpha.9",
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "vitepress-component-preview-component": "workspace:^1.0.0"
+  }
 }

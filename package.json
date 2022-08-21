@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "component:dev": "pnpm --filter=vitepress-component-preview-component dev",
+    "component:build": "pnpm --filter=vitepress-component-preview-component build",
+    "docs:dev": "pnpm --filter=vitepress-component-preview-docs dev",
+    "docs:build": "pnpm --filter=vitepress-component-preview-docs build",
+    "docs:serve": "pnpm --filter=vitepress-component-preview-docs serve",
     "changeset": "changeset",
     "changeset-version": "changeset version"
   },
@@ -11,6 +16,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@changesets/cli": "^2.24.3"
+    "@changesets/cli": "^2.24.3",
+    "@types/node": "^18.7.8",
+    "typescript": "^4.7.4"
   }
 }
