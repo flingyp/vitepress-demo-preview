@@ -1,5 +1,5 @@
 {
-  "name": "vitepress-component-preview-plugin",
+  "name": "vitepress-demo-preview-plugin",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.cjs",

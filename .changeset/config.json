@@ -5,8 +5,8 @@
   "fixed": [],
   "linked": [
     [
-      "vitepress-component-preview-component",
-      "vitepress-component-preview-plugin"
+      "vitepress-demo-preview-component",
+      "vitepress-demo-preview-plugin"
     ]
   ],
   "access": "public",
