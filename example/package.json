@@ -17,10 +17,10 @@
     "@vitejs/plugin-vue": "^3.0.3",
     "vite": "^3.0.9",
     "vitepress": "1.0.0-alpha.9",
-    "vitepress-component-preview-plugin": "workspace:^1.0.0",
+    "vitepress-demo-preview-plugin": "workspace:^1.0.0",
     "vue": "^3.2.37"
   },
   "dependencies": {
-    "vitepress-component-preview-component": "workspace:^1.0.0"
+    "vitepress-demo-preview-component": "workspace:^1.0.0"
   }
 }

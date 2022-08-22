@@ -100,7 +100,6 @@ export const transformPreview = (
   // 组件名
   const componentName =
     _dirArr[_dirArr.length - 1].split(".")[0] || defaultComponentName;
-  console.log(componentName);
 
   // 后缀名
   const suffixName = componentPath.substring(

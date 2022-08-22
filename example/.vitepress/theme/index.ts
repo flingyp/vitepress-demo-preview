@@ -1,7 +1,7 @@
 import DefaultTheme from "vitepress/theme";
 import { App } from "vue";
-import componentPreview from "vitepress-component-preview-component";
-import "vitepress-component-preview-component/dist/style.css";
+import componentPreview from "vitepress-demo-preview-component";
+import "vitepress-demo-preview-component/dist/style.css";
 
 export default {
   ...DefaultTheme,

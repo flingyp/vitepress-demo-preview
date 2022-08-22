@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import { transformPreviewComponent } from "vitepress-component-preview-plugin";
+import { transformPreviewComponent } from "vitepress-demo-preview-plugin";
 
 export default defineConfig({
   title: "Vitepress-Demo-Component",
