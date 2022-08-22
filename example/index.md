@@ -4,12 +4,6 @@
 
 测试内容
 
+<demo-preview path="./DemoShow.vue" title="演示Demo"></demo-preview>
+
 ### Component
-
-:::tip 介绍
-
-你好
-
-:::
-
-<preview path="./DemoShow.vue" title="演示Demo"></preview>

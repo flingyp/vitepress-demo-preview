@@ -6,5 +6,5 @@
 </template>
 
 <script lang="ts" setup>
-const msg = "Hello World";
+  const msg = 'Hello World'
 </script>

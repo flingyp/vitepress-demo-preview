@@ -1,19 +1,20 @@
-import Token from "markdown-it/lib/token";
-import { resolve, dirname } from "path";
-import { readFileSync } from "fs";
-import { MarkdownRenderer } from "vitepress";
+/* eslint-disable no-param-reassign */
+import Token from 'markdown-it/lib/token'
+import { resolve, dirname } from 'path'
+import { readFileSync } from 'fs'
+import { MarkdownRenderer } from 'vitepress'
 
-export const isCheckPreviewCom = /^<preview (.*)><\/preview>$/;
-const defaultComponentName = "component-preview";
-const scriptRE = /<\/script>/;
-const scriptLangTsRE = /<\s*script[^>]*\blang=['"]ts['"][^>]*/;
-const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/;
-const scriptClientRE = /<\s*script[^>]*\bclient\b[^>]*/;
+export const isCheckPreviewCom = /^<demo-preview (.*)><\/demo-preview>$/
+const defaultComponentName = 'component-preview'
+const scriptRE = /<\/script>/
+const scriptLangTsRE = /<\s*script[^>]*\blang=['"]ts['"][^>]*/
+const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/
+const scriptClientRE = /<\s*script[^>]*\bclient\b[^>]*/
 
 export interface DefaultProps {
-  path: string;
-  title: string;
-  description: string;
+  path: string
+  title: string
+  description: string
 }
 /**
  * 源码 => 代码块
@@ -22,11 +23,8 @@ export interface DefaultProps {
  * @param suffix
  * @returns
  */
-export const transformHighlightCode = (
-  mdInstance: MarkdownRenderer,
-  sourceCode: string,
-  suffix: string
-) => mdInstance.options.highlight!(sourceCode, suffix, "");
+export const transformHighlightCode = (mdInstance: MarkdownRenderer, sourceCode: string, suffix: string) =>
+  mdInstance.options.highlight!(sourceCode, suffix, '')
 
 /**
  * 注入 script 脚本
@@ -39,36 +37,30 @@ export const injectComponentImportScript = (
   absolutePath: string,
   componentName: string
 ) => {
-  const importCode = `import ${componentName} from '${absolutePath}'`.trim();
+  const importCode = `import ${componentName} from '${absolutePath}'`.trim()
 
-  if (!mdInstance.__data.hoistedTags) mdInstance.__data.hoistedTags = [];
+  if (!mdInstance.__data.hoistedTags) mdInstance.__data.hoistedTags = []
 
-  const hoistedTags: string[] = mdInstance.__data.hoistedTags || [];
+  const hoistedTags: string[] = mdInstance.__data.hoistedTags || []
 
-  const isUsingTs =
-    hoistedTags.findIndex((tag) => scriptLangTsRE.test(tag)) > -1;
+  const isUsingTs = hoistedTags.findIndex(tag => scriptLangTsRE.test(tag)) > -1
 
-  const existingSetupScriptIndex = hoistedTags.findIndex((tag) => {
-    return (
-      scriptRE.test(tag) && scriptSetupRE.test(tag) && !scriptClientRE.test(tag)
-    );
-  });
+  const existingSetupScriptIndex = hoistedTags.findIndex(tag => {
+    return scriptRE.test(tag) && scriptSetupRE.test(tag) && !scriptClientRE.test(tag)
+  })
 
   // 原Markdown文件中存在 <script><script> 、 <script setup><script> 或 <script setup lang="ts"><script> 标签
   if (existingSetupScriptIndex > -1) {
-    const tagSrc = hoistedTags[existingSetupScriptIndex];
-    hoistedTags[existingSetupScriptIndex] = tagSrc.replace(
-      scriptRE,
-      ` ${importCode} </script>`
-    );
+    const tagSrc = hoistedTags[existingSetupScriptIndex]
+    hoistedTags[existingSetupScriptIndex] = tagSrc.replace(scriptRE, ` ${importCode} </script>`)
   } else {
     hoistedTags.unshift(`
-      <script setup ${isUsingTs ? 'lang="ts"' : ""}>
+      <script setup ${isUsingTs ? 'lang="ts"' : ''}>
         ${importCode}
       </script>
-    `);
+    `)
   }
-};
+}
 
 /**
  * 编译预览组件
@@ -77,56 +69,44 @@ export const injectComponentImportScript = (
  * @param mdPath
  * @returns
  */
-export const transformPreview = (
-  md: MarkdownRenderer,
-  token: Token,
-  mdPath: string
-) => {
-  const props = token.content.match(isCheckPreviewCom)![1];
+export const transformPreview = (md: MarkdownRenderer, token: Token, mdPath: string) => {
+  const props = token.content.match(isCheckPreviewCom)![1]
   const componentProps: DefaultProps = {
-    path: "",
-    title: "默认标题",
-    description: "描述内容",
-  };
-  props.split(" ").forEach((item) => {
-    item = item.replaceAll(/"|"/gi, "");
-    const _item = item.split("=");
+    path: '',
+    title: '默认标题',
+    description: '描述内容'
+  }
+  props.split(' ').forEach(item => {
+    item = item.replaceAll(/"|"/gi, '')
+    const key = item.split('=')[0]
+    const value = item.split('=')[1]
     // @ts-ignore
-    componentProps[_item[0]] = _item[1];
-  });
+    componentProps[key] = value
+  })
   // 组件绝对路径
-  const componentPath = resolve(dirname(mdPath), componentProps.path || ".");
-  const _dirArr = componentProps.path.split("/");
+  const componentPath = resolve(dirname(mdPath), componentProps.path || '.')
+  const _dirArr = componentProps.path.split('/')
   // 组件名
-  const componentName =
-    _dirArr[_dirArr.length - 1].split(".")[0] || defaultComponentName;
+  const componentName = _dirArr[_dirArr.length - 1].split('.')[0] || defaultComponentName
 
   // 后缀名
-  const suffixName = componentPath.substring(
-    componentPath.lastIndexOf(".") + 1
-  );
+  const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
 
-  injectComponentImportScript(md, componentProps.path, componentName);
+  injectComponentImportScript(md, componentProps.path, componentName)
 
   // 组件源码
   const componentSourceCode = readFileSync(componentPath, {
-    encoding: "utf-8",
-  });
+    encoding: 'utf-8'
+  })
   // 源码代码块（经过处理）
-  const compileHighlightCode = transformHighlightCode(
-    md,
-    componentSourceCode,
-    suffixName
-  );
+  const compileHighlightCode = transformHighlightCode(md, componentSourceCode, suffixName)
 
-  const sourceCode = `<preview code=${encodeURIComponent(
-    componentSourceCode
-  )} showCode=${encodeURIComponent(compileHighlightCode)} title=${
-    componentProps.title
-  } description=${componentProps.description}>
+  const code = encodeURI(componentSourceCode)
+  const showCode = encodeURIComponent(compileHighlightCode)
 
+  const sourceCode = `<demo-preview title=${componentProps.title} description=${componentProps.description} code="${code}" showCode="${showCode}">
     <${componentName}></${componentName}>
-  </preview>`;
+  </demo-preview>`
 
-  return sourceCode;
-};
+  return sourceCode
+}

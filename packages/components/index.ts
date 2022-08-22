@@ -1,11 +1,12 @@
-import type {App} from 'vue'
-import ComponentPreview from "./ComponentPreview.vue";
+import type { App } from 'vue'
+import DemoPreview from './DemoPreview.vue'
 
-export { ComponentPreview };
+export { DemoPreview }
+
+const componentName = 'demo-preview'
 
 export default {
-    install(app: App) {
-        app.component('preview', ComponentPreview)
-    }
+  install(app: App) {
+    app.component(componentName, DemoPreview)
+  }
 }
-

@@ -3,12 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [
-    [
-      "vitepress-demo-preview-component",
-      "vitepress-demo-preview-plugin"
-    ]
-  ],
+  "linked": [["vitepress-demo-preview-component", "vitepress-demo-preview-plugin"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
