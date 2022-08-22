@@ -1,7 +1,7 @@
 {
   "name": "vitepress-demo-preview",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "preview component of code and component in vitepress",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm plugin:build && pnpm component:build && pnpm docs:dev",

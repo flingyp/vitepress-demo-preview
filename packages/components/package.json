@@ -1,7 +1,7 @@
 {
   "name": "vitepress-demo-preview-component",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "preview component of component",
   "packageManager": "pnpm@7.6.0",
   "type": "module",
   "main": "./dist/preview-component.umd.cjs",
@@ -21,7 +21,8 @@
   "author": "FlyPeng",
   "license": "MIT",
   "peerDependencies": {
-    "vue": "^3.2"
+    "vue": "^3.2",
+    "vitepress": "^1.0.0-alpha.9"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",

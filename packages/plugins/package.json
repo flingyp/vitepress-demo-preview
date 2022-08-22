@@ -1,7 +1,7 @@
 {
   "name": "vitepress-demo-preview-plugin",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "preview component of plugin",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -21,6 +21,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.2",
+    "vitepress": "^1.0.0-alpha.9"
+  },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
     "markdown-it": "^13.0.1",
