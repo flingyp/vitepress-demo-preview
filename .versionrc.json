@@ -25,7 +25,8 @@
         },
         {
             "type": "refactor",
-            "section": "♻️ Code Refactoring | 代码重构"
+            "section": "♻️ Code Refactoring | 代码重构",
+            "hidden": true
         },
         {
             "type": "perf",
