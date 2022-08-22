@@ -4,6 +4,6 @@
 
 测试内容
 
-<demo-preview path="./DemoShow.vue" title="演示Demo"></demo-preview>
+<demo-preview title="Button 按钮" path="./DemoShow.vue"  description="There are primary button, default button, dashed button, text button and link button in antd"></demo-preview>
 
 ### Component

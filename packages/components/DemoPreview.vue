@@ -27,9 +27,9 @@
       </section>
       <section :class="[ns.bem('description')]">
         <div :class="[ns.bem('description', 'title')]">
-          <span>标题</span>
+          <span>{{ title }}</span>
         </div>
-        <div :class="[ns.bem('description', 'content')]">描述内容描述内容描述内容描述内容描述内容描述内容</div>
+        <div :class="[ns.bem('description', 'content')]">{{ description }}</div>
         <div :class="[ns.bem('description', 'split-line')]"></div>
         <div :class="[ns.bem('description', 'handle-btn')]">操作按钮</div>
       </section>
