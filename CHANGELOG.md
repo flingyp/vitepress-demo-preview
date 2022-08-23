@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/flingyp/vitepress-demo-preview/compare/v0.1.0...v0.2.0) (2022-08-23)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复获取不到demo-preview传递的参数 ([0d4699b](https://github.com/flingyp/vitepress-demo-preview/commit/0d4699bc9d9653242d0bbda0a179bed97087691c))
+
+
+### ✨ Features | 新功能
+
+* code fold ([f71724f](https://github.com/flingyp/vitepress-demo-preview/commit/f71724f495c7eda4742a83a443eded6f37a9fe86))
+* copy code content ([90aec58](https://github.com/flingyp/vitepress-demo-preview/commit/90aec5894ad51db8002eff8abca1f73f2b44fa23))
+
 ## 0.1.0 (2022-08-22)
 
 
