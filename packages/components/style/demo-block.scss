@@ -50,12 +50,16 @@
     align-items: center;
     justify-content: center;
 
-    .#{$defaultPrefix}-icon__code_open_close {
-      svg {
-        fill: currentColor;
-        color: var(--component-preview-text-1);
-        cursor: pointer;
-      }
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      color: var(--component-preview-text-1);
+      cursor: pointer;
+    }
+
+    svg:not(:last-of-type) {
+      margin-right: 8px;
     }
   }
 }

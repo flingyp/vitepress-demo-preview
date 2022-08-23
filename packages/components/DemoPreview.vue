@@ -2,11 +2,14 @@
   import { ref } from 'vue'
   import CodeOpen from './icons/code-open.vue'
   import CodeClose from './icons/code-close.vue'
+  import CodeCopy from './icons/code-copy.vue'
   import { useNameSpace } from './hooks/use-namespaces'
   import { useCodeFold } from './hooks/use-codefold'
+  import { useCodeCopy } from './hooks/use-codecopy'
 
   const ns = useNameSpace()
   const { isCodeFold, setCodeFold } = useCodeFold()
+  const { copyContent, clickCopy } = useCodeCopy()
 
   interface DemoBlockProps {
     code: string
@@ -19,7 +22,7 @@
     title: '默认标题',
     description: '描述内容'
   })
-
+  const sourceCode = ref(decodeURIComponent(props.code))
   const showSourceCode = ref(decodeURIComponent(props.showCode))
 </script>
 
@@ -36,10 +39,9 @@
         <div :class="[ns.bem('description', 'content')]">{{ description }}</div>
         <div :class="[ns.bem('description', 'split-line')]"></div>
         <div :class="[ns.bem('description', 'handle-btn')]">
-          <div :class="[ns.bem('icon', 'code_open_close')]">
-            <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
-            <CodeOpen v-else @click="setCodeFold(false)" />
-          </div>
+          <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
+          <CodeOpen v-else @click="setCodeFold(false)" />
+          <CodeCopy @click="clickCopy(sourceCode)" />
         </div>
       </section>
       <section :class="[ns.bem('source')]" v-if="isCodeFold">
