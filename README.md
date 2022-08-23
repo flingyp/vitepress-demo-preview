@@ -9,6 +9,7 @@
 ```ts
 import demoPreview, { ComponentPreview } from 'vitepress-component-preview-component'
 import 'vitepress-component-preview-component/dist/style.css'
+// 引入自定义背景色的样式文件重写变量 --component-preview-code-block-bg
 
 export default {
   ...DefaultTheme,
@@ -43,3 +44,5 @@ export default defineConfig({
 ```md
 <demo-preview path="./xxx/xx.vue" title="标题" description="XXXX"></demo-preview>
 ```
+
+4. 代码块的背景色修改让开发者根据`markdown.theme`去自定义背景色

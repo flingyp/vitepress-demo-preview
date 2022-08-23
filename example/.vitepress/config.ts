@@ -5,6 +5,8 @@ export default defineConfig({
   title: 'Vitepress-Demo-Component',
   description: 'Just playing around.',
   markdown: {
+    theme: 'github-dark',
+    lineNumbers: true,
     config(md) {
       md.use(transformPreviewComponent)
     }

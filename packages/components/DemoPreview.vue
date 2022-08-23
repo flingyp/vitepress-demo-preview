@@ -1,8 +1,12 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import CodeOpen from './icons/code-open.vue'
+  import CodeClose from './icons/code-close.vue'
   import { useNameSpace } from './hooks/use-namespaces'
+  import { useCodeFold } from './hooks/use-codefold'
 
   const ns = useNameSpace()
+  const { isCodeFold, setCodeFold } = useCodeFold()
 
   interface DemoBlockProps {
     code: string
@@ -31,9 +35,14 @@
         </div>
         <div :class="[ns.bem('description', 'content')]">{{ description }}</div>
         <div :class="[ns.bem('description', 'split-line')]"></div>
-        <div :class="[ns.bem('description', 'handle-btn')]">操作按钮</div>
+        <div :class="[ns.bem('description', 'handle-btn')]">
+          <div :class="[ns.bem('icon', 'code_open_close')]">
+            <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
+            <CodeOpen v-else @click="setCodeFold(false)" />
+          </div>
+        </div>
       </section>
-      <section :class="[ns.bem('source')]">
+      <section :class="[ns.bem('source')]" v-if="isCodeFold">
         <div v-html="showSourceCode" class="language-vue"></div>
       </section>
     </div>
@@ -41,3 +50,4 @@
 </template>
 
 <style src="./style/demo-block.scss"></style>
+<style src="./style/demo-code.scss"></style>
