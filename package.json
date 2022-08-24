@@ -1,6 +1,6 @@
 {
   "name": "vitepress-demo-preview",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "preview component of code and component in vitepress",
   "main": "index.js",
   "scripts": {
