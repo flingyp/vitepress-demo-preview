@@ -1,5 +1,11 @@
 # vitepress-demo-preview-component
 
+## 0.3.0
+
+### Minor Changes
+
+- 添加代码复制 MessageNotice 组件
+
 ## 0.2.0
 
 ### Minor Changes
