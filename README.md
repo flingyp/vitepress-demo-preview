@@ -1,15 +1,34 @@
-## 如何使用
+<div align="center">
+  <img src="https://s1.328888.xyz/2022/08/24/wDqX7.png" width="100" />
+	<h1 style="margin:10px">vitepress-demo-preview</h1>
+	<h6 align="center">Quickly add vue demo examples and source code display in your vitepress</h6>
+</div>
 
-- `pnpm add vitepress-component-preview-component`
+## 🎉Introduce
 
-- `pnpm add vitepress-component-preview-plugin -D`
+[vitepress-demo-preview](https://github.com/flingyp/vitepress-demo-preview) consists of two packages. Use it to easily write Vue examples in vitepress
 
-1. 注册组件
+[vitepress-component-preview-component](https://www.npmjs.com/package/vitepress-demo-preview-component) for example preview and related example information and code presentation
+
+[vitepress-component-preview-plugin](https://www.npmjs.com/package/vitepress-component-preview-plugin) is a markdown-it plugin used in the vitepress configuration file
+
+## 🔥Installation
+
+```sh
+pnpm add vitepress-component-preview-component -D
+```
+
+```sh
+pnpm add vitepress-component-preview-plugin -D
+```
+
+## ⚡Usage
+
+configure in your vitepress/theme entry file
 
 ```ts
 import demoPreview, { ComponentPreview } from 'vitepress-component-preview-component'
 import 'vitepress-component-preview-component/dist/style.css'
-// 引入自定义背景色的样式文件重写变量 --component-preview-code-block-bg
 
 export default {
   ...DefaultTheme,
@@ -22,7 +41,7 @@ export default {
 }
 ```
 
-2. 配置`MarkDown` 插件
+configure markdown to add plugin
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -39,10 +58,8 @@ export default defineConfig({
 })
 ```
 
-3. 使用
+use in markdown file
 
-```md
-<demo-preview path="./xxx/xx.vue" title="标题" description="XXXX"></demo-preview>
+```html
+<demo-preview path="./xxx/xx.vue" title="标题" description="描述内容"></demo-preview>
 ```
-
-4. 代码块的背景色修改让开发者根据`markdown.theme`去自定义背景色
