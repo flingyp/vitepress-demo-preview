@@ -15,11 +15,11 @@
 ## 🔥Installation
 
 ```sh
-pnpm add vitepress-component-preview-component -D
+pnpm add vitepress-demo-preview-component -D
 ```
 
 ```sh
-pnpm add vitepress-component-preview-plugin -D
+pnpm add vitepress-demo-preview-plugin -D
 ```
 
 ## ⚡Usage
@@ -27,8 +27,8 @@ pnpm add vitepress-component-preview-plugin -D
 configure in your vitepress/theme entry file
 
 ```ts
-import demoPreview, { ComponentPreview } from 'vitepress-component-preview-component'
-import 'vitepress-component-preview-component/dist/style.css'
+import demoPreview, { ComponentPreview } from 'vitepress-demo-preview-component'
+import 'vitepress-demo-preview-component/dist/style.css'
 
 export default {
   ...DefaultTheme,
@@ -45,7 +45,7 @@ configure markdown to add plugin
 
 ```ts
 import { defineConfig } from 'vitepress'
-import { transformPreviewComponent } from 'vitepress-component-preview-plugin'
+import { transformPreviewComponent } from 'vitepress-demo-preview-plugin'
 
 export default defineConfig({
   title: 'Vitepress-Demo-Component',
