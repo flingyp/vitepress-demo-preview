@@ -1,5 +1,11 @@
 # vitepress-demo-preview-component
 
+## 0.3.1
+
+### Patch Changes
+
+- 添加复制成功图标、代码块展开动画
+
 ## 0.3.0
 
 ### Minor Changes
