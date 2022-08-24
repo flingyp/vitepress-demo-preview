@@ -63,3 +63,18 @@
     }
   }
 }
+
+.#{$defaultPrefix}-source {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+  opacity: 0;
+}
+
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.3s ease-in-out;
+}

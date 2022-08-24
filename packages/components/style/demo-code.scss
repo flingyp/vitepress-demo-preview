@@ -2,7 +2,6 @@
 
 .#{$defaultPrefix}__container {
   div[class*='language-'] {
-    height: 100%;
     margin-top: 0;
     margin-bottom: 0;
     border-bottom-left-radius: 4px;
@@ -10,6 +9,5 @@
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     background-color: var(--component-preview-code-block-bg);
-    transition: all 0.5s linear;
   }
 }

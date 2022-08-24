@@ -50,9 +50,11 @@
           <CodeCopy @click="clickCodeCopy" />
         </div>
       </section>
-      <section :class="[ns.bem('source')]" v-if="isCodeFold">
-        <div v-html="showSourceCode" class="language-vue"></div>
-      </section>
+      <transition name="slide-down">
+        <section :class="[ns.bem('source')]" v-if="isCodeFold">
+          <div v-html="showSourceCode" class="language-vue"></div>
+        </section>
+      </transition>
     </div>
   </ClientOnly>
 </template>
