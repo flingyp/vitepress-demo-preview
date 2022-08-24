@@ -11,6 +11,14 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
+
+  svg {
+    display: inline-block;
+    fill: currentColor;
+    color: var(--component-preview-primary-color);
+    cursor: pointer;
+    margin-right: 4px;
+  }
 }
 
 .slide-fade-leave-active,

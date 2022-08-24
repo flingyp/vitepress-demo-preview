@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref, watch } from 'vue'
   import { useNameSpace } from '../hooks/use-namespaces'
+  import CopySuccess from '../icons/copy-success.vue'
 
   interface MessageNotice {
     content: string
@@ -42,7 +43,8 @@
 <template>
   <transition name="slide-fade" @after-leave="handleDestroy">
     <div v-if="visible" :class="[ns.bem('message-notice', 'container')]" :style="{ top: topHeight + 'px' }">
-      {{ content }}
+      <CopySuccess />
+      <span>{{ content }}</span>
     </div>
   </transition>
 </template>

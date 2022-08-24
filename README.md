@@ -27,7 +27,7 @@ pnpm add vitepress-demo-preview-plugin -D
 configure in your vitepress/theme entry file
 
 ```ts
-import demoPreview, { ComponentPreview } from 'vitepress-demo-preview-component'
+import demoPreview, { DemoPreview } from 'vitepress-demo-preview-component'
 import 'vitepress-demo-preview-component/dist/style.css'
 
 export default {
@@ -36,7 +36,7 @@ export default {
     // 第一种方式
     app.use(componentPreview)
     // 第二种方式
-    app.component('demo-preview', ComponentPreview)
+    app.component('demo-preview', DemoPreview)
   }
 }
 ```
