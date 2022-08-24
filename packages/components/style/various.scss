@@ -8,6 +8,7 @@
   --component-preview-text-3: var(--vp-c-text-3);
   --component-preview-text-4: var(--vp-c-text-4);
   --component-preview-code-block-bg: #343030;
+  --component-preview-primary-color: var(--vp-c-brand);
 }
 
 .dark:root {
@@ -20,6 +21,7 @@
   --component-preview-text-3: var(--vp-c-text-3);
   --component-preview-text-4: var(--vp-c-text-4);
   --component-preview-code-block-bg: #282626;
+  --component-preview-primary-color: var(--vp-c-brand);
 }
 
 $defaultPrefix: 'vitepress-component-preview';

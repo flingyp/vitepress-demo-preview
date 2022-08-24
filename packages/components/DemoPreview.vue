@@ -6,6 +6,7 @@
   import { useNameSpace } from './hooks/use-namespaces'
   import { useCodeFold } from './hooks/use-codefold'
   import { useCodeCopy } from './hooks/use-codecopy'
+  import { MessageNoticeService } from './messages/index'
 
   const ns = useNameSpace()
   const { isCodeFold, setCodeFold } = useCodeFold()
@@ -24,6 +25,11 @@
   })
   const sourceCode = ref(decodeURIComponent(props.code))
   const showSourceCode = ref(decodeURIComponent(props.showCode))
+
+  const clickCodeCopy = () => {
+    clickCopy(sourceCode.value)
+    MessageNoticeService.open()
+  }
 </script>
 
 <template>
@@ -41,7 +47,7 @@
         <div :class="[ns.bem('description', 'handle-btn')]">
           <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
           <CodeOpen v-else @click="setCodeFold(false)" />
-          <CodeCopy @click="clickCopy(sourceCode)" />
+          <CodeCopy @click="clickCodeCopy" />
         </div>
       </section>
       <section :class="[ns.bem('source')]" v-if="isCodeFold">
