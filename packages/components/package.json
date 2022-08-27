@@ -18,7 +18,17 @@
     "dev": "vite build --watch",
     "build": "vite build"
   },
-  "keywords": [],
+  "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flingyp/vitepress-demo-preview.git"
+  },
+  "bugs": "https://github.com/flingyp/vitepress-demo-preview/issues",
+  "keywords": [
+    "vitepress",
+    "plugins",
+    "component"
+  ],
   "author": "FlyPeng",
   "license": "MIT",
   "peerDependencies": {

@@ -19,9 +19,19 @@
     "dev": "rollup --config rollup.config.ts --watch",
     "build": "rollup --config rollup.config.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flingyp/vitepress-demo-preview.git"
+  },
+  "bugs": "https://github.com/flingyp/vitepress-demo-preview/issues",
+  "keywords": [
+    "vitepress",
+    "plugins",
+    "component"
+  ],
+  "author": "FlyPeng",
+  "license": "MIT",
   "peerDependencies": {
     "vitepress": "^1.0.0-alpha.9",
     "vue": "^3.2"

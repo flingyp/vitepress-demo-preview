@@ -24,9 +24,19 @@
     "release:changelog:minor": "standard-version --release-as minor",
     "release:changelog:patch": "standard-version --release-as patch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flingyp/vitepress-demo-preview.git"
+  },
+  "bugs": "https://github.com/flingyp/vitepress-demo-preview/issues",
+  "keywords": [
+    "vitepress",
+    "plugins",
+    "component"
+  ],
+  "author": "FlyPeng",
+  "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.24.3",
     "@commitlint/cli": "^17.0.3",
