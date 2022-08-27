@@ -16,19 +16,25 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild"
+    "dev": "rollup --config rollup.config.ts --watch",
+    "build": "rollup --config rollup.config.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "vue": "^3.2",
-    "vitepress": "^1.0.0-alpha.9"
+    "vitepress": "^1.0.0-alpha.9",
+    "vue": "^3.2"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.4.0",
     "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-container": "^2.0.5",
     "markdown-it": "^13.0.1",
-    "unbuild": "^0.8.9",
+    "markdown-it-container": "^3.0.0",
+    "rollup": "^2.78.1",
+    "rollup-plugin-dts": "^4.2.2",
+    "tslib": "^2.4.0",
     "vitepress": "1.0.0-alpha.9"
   }
 }
