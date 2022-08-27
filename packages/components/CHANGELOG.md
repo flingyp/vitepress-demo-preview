@@ -1,5 +1,11 @@
 # vitepress-demo-preview-component
 
+## 0.3.2
+
+### Patch Changes
+
+- 更新 Package.json 和 README.md 文件
+
 ## 0.3.1
 
 ### Patch Changes
