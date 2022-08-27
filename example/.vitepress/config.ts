@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { transformPreviewComponent } from 'vitepress-demo-preview-plugin'
+import { componentPreview } from 'vitepress-demo-preview-plugin'
 
 export default defineConfig({
   title: 'Vitepress-Demo-Component',
@@ -8,7 +8,7 @@ export default defineConfig({
     theme: 'github-dark',
     lineNumbers: true,
     config(md) {
-      md.use(transformPreviewComponent)
+      md.use(componentPreview)
     }
   }
 })

@@ -1,10 +1,9 @@
 import MarkdownIt from 'markdown-it'
 import Renderer from 'markdown-it/lib/renderer'
 import Token from 'markdown-it/lib/token'
-import { transformPreview, isCheckPreviewCom } from './transformPreview'
+import { transformPreview, isCheckPreviewCom } from './componentPreview'
 
-// 注意： md类型声明不可声明MarkdownRenderer类型，unbuild打包工具报错
-export const transformPreviewComponent = (md: any) => {
+export const componentPreview = (md: any) => {
   const defaultHtmlBlockRender = md.renderer.rules.html_inline
   // eslint-disable-next-line no-param-reassign
   md.renderer.rules.html_inline = (
