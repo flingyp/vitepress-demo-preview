@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/flingyp/vitepress-demo-preview/compare/v0.3.0...v0.3.1) (2022-08-30)
+
+
+### ✨ Features | 新功能
+
+* 添加复制成功图标 ([1001a97](https://github.com/flingyp/vitepress-demo-preview/commit/1001a97b39d6d7fb9c56c8dbca9214226f55db75))
+* 展开代码块动画 ([f541e8f](https://github.com/flingyp/vitepress-demo-preview/commit/f541e8fe7dc5671d67e84ec22fe6903c5429614b))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **componentpreview:** vitepress将__path、__relative、__data从MD实例移除致使源插件失效，使用env选项 ([a99bcd3](https://github.com/flingyp/vitepress-demo-preview/commit/a99bcd3eab55eb3b0d1c153d141f821e02dbd2c0))
+
 ## [0.3.0](https://github.com/flingyp/vitepress-demo-preview/compare/v0.2.0...v0.3.0) (2022-08-24)
 
 
