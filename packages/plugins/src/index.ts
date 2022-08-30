@@ -16,7 +16,7 @@ export const componentPreview = (md: any) => {
     const token = tokens[idx]
     if (isCheckPreviewCom.test(token.content)) {
       // eslint-disable-next-line no-underscore-dangle
-      return transformPreview(md, token, md.__path)
+      return transformPreview(md, token, env)
     }
     return defaultHtmlBlockRender(tokens, idx, options, env, self)
   }

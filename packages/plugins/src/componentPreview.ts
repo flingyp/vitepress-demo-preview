@@ -4,9 +4,9 @@ import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import { MarkdownRenderer } from 'vitepress'
 
-export const isCheckPreviewCom = /^<demo-preview (.*)><\/demo-preview>$/
+export const isCheckPreviewCom = /^<preview (.*)><\/preview>$/
 const getPropsReg =
-  /^<demo-preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*)><\/demo-preview>$/
+  /^<preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*)><\/preview>$/
 const defaultComponentName = 'component-preview'
 const scriptRE = /<\/script>/
 const scriptLangTsRE = /<\s*script[^>]*\blang=['"]ts['"][^>]*/
@@ -34,44 +34,33 @@ export const transformHighlightCode = (mdInstance: MarkdownRenderer, sourceCode:
  * @param absolutePath
  * @param componentName
  */
-export const injectComponentImportScript = (
-  mdInstance: MarkdownRenderer,
-  absolutePath: string,
-  componentName: string
-) => {
-  const importCode = `import ${componentName} from '${absolutePath}'`.trim()
+export const injectComponentImportScript = (env: any, absolutePath: string, componentName: string) => {
+  // https://github.com/vuejs/vitepress/issues/1258  __Path、__Relativepath、__data.Hoistedtags 被删除解决方案
+  // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/src/types.ts
+  // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/tests/__snapshots__/sfc-plugin.spec.ts.snap
+  const scriptsCode = env.sfcBlocks.scripts
 
-  if (!mdInstance.__data.hoistedTags) mdInstance.__data.hoistedTags = []
-
-  const hoistedTags: string[] = mdInstance.__data.hoistedTags || []
-
-  const isUsingTs = hoistedTags.findIndex(tag => scriptLangTsRE.test(tag)) > -1
-
-  const existingSetupScriptIndex = hoistedTags.findIndex(tag => {
-    return scriptRE.test(tag) && scriptSetupRE.test(tag) && !scriptClientRE.test(tag)
-  })
-
-  // 原Markdown文件中存在 <script><script> 、 <script setup><script> 或 <script setup lang="ts"><script> 标签
-  if (existingSetupScriptIndex > -1) {
-    const tagSrc = hoistedTags[existingSetupScriptIndex]
-    hoistedTags[existingSetupScriptIndex] = tagSrc.replace(scriptRE, ` ${importCode} </script>`)
-  } else {
-    hoistedTags.unshift(`
-      <script setup ${isUsingTs ? 'lang="ts"' : ''}>
-        ${importCode}
-      </script>
-    `)
+  const scriptBlockObj = {
+    type: 'script',
+    tagClose: '</script>',
+    tagOpen: "<script setup lang='ts'>",
+    content: `<script setup lang='ts'>
+      import ${componentName} from '${absolutePath}'
+    </script>`,
+    contentStripped: `import ${componentName} from '${absolutePath}'`
   }
+
+  scriptsCode.push(scriptBlockObj)
 }
 
 /**
  * 编译预览组件
  * @param md
  * @param token
- * @param mdPath
+ * @param env
  * @returns
  */
-export const transformPreview = (md: MarkdownRenderer, token: Token, mdPath: string) => {
+export const transformPreview = (md: MarkdownRenderer, token: Token, env: any) => {
   const componentProps: DefaultProps = {
     path: '',
     title: '默认标题',
@@ -79,6 +68,7 @@ export const transformPreview = (md: MarkdownRenderer, token: Token, mdPath: str
   }
   // 获取Props相关参数
   const tokenContentArr = token.content.match(getPropsReg)!
+
   tokenContentArr.forEach((item, index) => {
     item = item.replaceAll(/"|"/gi, '').trim()
     if (item === 'path') {
@@ -89,15 +79,19 @@ export const transformPreview = (md: MarkdownRenderer, token: Token, mdPath: str
       componentProps.description = tokenContentArr[index + 1].replaceAll(/"|"/gi, '').trim()
     }
   })
+
   // 组件绝对路径
-  const componentPath = resolve(dirname(mdPath), componentProps.path || '.')
+  const componentPath = resolve(dirname(env.path), componentProps.path || '.')
+
   const _dirArr = componentProps.path.split('/')
+
   // 组件名
   const componentName = _dirArr[_dirArr.length - 1].split('.')[0] || defaultComponentName
   // 后缀名
   const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
 
-  injectComponentImportScript(md, componentProps.path, componentName)
+  // 注入组件导入语句
+  injectComponentImportScript(env, componentProps.path, componentName)
 
   // 组件源码
   const componentSourceCode = readFileSync(componentPath, {

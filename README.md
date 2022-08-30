@@ -27,16 +27,13 @@ pnpm add vitepress-demo-preview-plugin -D
 configure in your vitepress/theme entry file
 
 ```ts
-import demoPreview, { DemoPreview } from 'vitepress-demo-preview-component'
+import DemoPreview from 'vitepress-demo-preview-component'
 import 'vitepress-demo-preview-component/dist/style.css'
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: App }) {
-    // 第一种方式
-    app.use(componentPreview)
-    // 第二种方式
-    app.component('demo-preview', DemoPreview)
+    app.use(demoPreview)
   }
 }
 ```
@@ -61,5 +58,5 @@ export default defineConfig({
 use in markdown file
 
 ```html
-<demo-preview path="./xxx/xx.vue" title="标题" description="描述内容"></demo-preview>
+<preview path="./xxx/xx.vue" title="标题" description="描述内容"></preview>
 ```
