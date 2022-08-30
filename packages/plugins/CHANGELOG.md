@@ -1,6 +1,12 @@
 # vitepress-demo-preview-plugin
 
-## 0.3.2
+## 0.2.2
+
+### Patch Changes
+
+- 修复插件无法使用问题
+
+## 0.2.1
 
 ### Patch Changes
 
