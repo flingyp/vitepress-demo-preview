@@ -48,7 +48,7 @@ importers:
     specifiers:
       '@vitejs/plugin-vue': ^3.0.3
       vite: ^3.0.9
-      vitepress: 1.0.0-alpha.9
+      vitepress: 1.0.0-alpha.12
       vitepress-demo-preview-component: workspace:^0.3.1
       vitepress-demo-preview-plugin: workspace:^0.2.0
       vue: ^3.2.37
@@ -57,7 +57,7 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.37
       vite: 3.0.9
-      vitepress: 1.0.0-alpha.9
+      vitepress: 1.0.0-alpha.12
       vitepress-demo-preview-plugin: link:../packages/plugins
       vue: 3.2.37
 
@@ -5149,6 +5149,31 @@ packages:
       sass: 1.54.5
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /vitepress/1.0.0-alpha.12:
+    resolution: {integrity: sha512-++e7p9oxqk7RKz2fMNtrOAWmZSWVPozDuOG1owwntPRincC8/pIhPkJ9ojNHcHCHBylszJBsjkRqbseurZ7vCg==}
+    hasBin: true
+    dependencies:
+      '@docsearch/css': 3.2.1
+      '@docsearch/js': 3.2.1
+      '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.37
+      '@vue/devtools-api': 6.2.1
+      '@vueuse/core': 9.1.1_vue@3.2.37
+      body-scroll-lock: 4.0.0-beta.0
+      shiki: 0.11.1
+      vite: 3.0.9
+      vue: 3.2.37
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@types/react'
+      - '@vue/composition-api'
+      - less
+      - react
+      - react-dom
+      - sass
+      - stylus
+      - terser
     dev: true
 
   /vitepress/1.0.0-alpha.9:
