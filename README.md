@@ -60,3 +60,33 @@ use in markdown file
 ```html
 <preview path="./xxx/xx.vue" title="标题" description="描述内容"></preview>
 ```
+
+## TODO
+
+- custom container
+
+```ts
+import { defineConfig } from 'vitepress'
+import { containerPreview } from 'vitepress-demo-preview-plugin'
+
+export default defineConfig({
+  title: 'Vitepress-Demo-Component',
+  description: 'Just playing around.',
+  markdown: {
+    config(md) {
+      md.use(containerPreview)
+    }
+  }
+})
+```
+
+to use
+
+```md
+:::preview Button 按钮
+
+description=你的描述内容
+
+path=./xxx/xx.vue
+:::
+```
