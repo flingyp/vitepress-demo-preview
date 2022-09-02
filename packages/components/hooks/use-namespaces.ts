@@ -14,7 +14,7 @@ interface UseNameSpaceReturn {
   bem: (element: string, modifier: string) => string
 }
 
-const defaultPrefix = 'vitepress-component-preview'
+const defaultPrefix = 'vitepress-demo-preview'
 
 const generateName = (prefix: string, block?: string, element?: string, modifier?: string) => {
   let defaultName = block === '' ? `${prefix}` : `${prefix}-${block}`

@@ -19,6 +19,11 @@
 
 .#{$defaultPrefix}-preview {
   padding: 20px 20px 30px 20px;
+
+  & > p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .#{$defaultPrefix}-description {

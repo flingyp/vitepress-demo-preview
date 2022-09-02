@@ -1,10 +1,12 @@
 import MarkdownIt from 'markdown-it'
 import Renderer from 'markdown-it/lib/renderer'
 import Token from 'markdown-it/lib/token'
-import { transformPreview, isCheckPreviewCom } from './componentPreview'
+import { isCheckPreviewCom } from './utils'
+import { transformPreview } from './componentPreview'
+import { customContainerMount, parseContainer } from './containerPreview'
 
 export const componentPreview = (md: any) => {
-  const defaultHtmlBlockRender = md.renderer.rules.html_inline
+  const defaultHtmlInlineRender = md.renderer.rules.html_inline
   // eslint-disable-next-line no-param-reassign
   md.renderer.rules.html_inline = (
     tokens: Token[],
@@ -18,6 +20,11 @@ export const componentPreview = (md: any) => {
       // eslint-disable-next-line no-underscore-dangle
       return transformPreview(md, token, env)
     }
-    return defaultHtmlBlockRender(tokens, idx, options, env, self)
+    return defaultHtmlInlineRender(tokens, idx, options, env, self)
   }
+}
+
+export const containerPreview = (md: any) => {
+  customContainerMount(md)
+  parseContainer(md)
 }

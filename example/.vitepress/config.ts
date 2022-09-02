@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { componentPreview } from 'vitepress-demo-preview-plugin'
+import { componentPreview, containerPreview } from 'vitepress-demo-preview-plugin'
 
 export default defineConfig({
   title: 'Vitepress-Demo-Component',
@@ -9,6 +9,7 @@ export default defineConfig({
     lineNumbers: true,
     config(md) {
       md.use(componentPreview)
+      md.use(containerPreview)
     }
   }
 })
