@@ -1,5 +1,11 @@
 # vitepress-demo-preview-plugin
 
+## 1.0.0
+
+### Major Changes
+
+- [`977677d`](https://github.com/flingyp/vitepress-demo-preview/commit/977677d42f729bf50950fd2eb0087c1e54fbea11) Thanks [@flingyp](https://github.com/flingyp)! - 自定义容器实现组件预览
+
 ## 0.2.2
 
 ### Patch Changes

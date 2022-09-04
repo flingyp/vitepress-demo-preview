@@ -1,5 +1,11 @@
 # vitepress-demo-preview-component
 
+## 0.3.4
+
+### Patch Changes
+
+- [`977677d`](https://github.com/flingyp/vitepress-demo-preview/commit/977677d42f729bf50950fd2eb0087c1e54fbea11) Thanks [@flingyp](https://github.com/flingyp)! - 修改组件样式
+
 ## 0.3.3
 
 ### Patch Changes
