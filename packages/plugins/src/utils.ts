@@ -21,7 +21,7 @@ export const injectComponentImportScript = (env: any, path: string, componentNam
   // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/tests/__snapshots__/sfc-plugin.spec.ts.snap
   const scriptsCode = env.sfcBlocks.scripts
 
-  const scriptsSetupIndex = scriptsCode.findIndex(script => {
+  const scriptsSetupIndex = scriptsCode.findIndex((script: any) => {
     if (script.tagOpen === "<script setup lang='ts'>") return true
     return false
   })
