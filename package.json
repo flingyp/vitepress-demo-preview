@@ -22,7 +22,8 @@
     "commit": "git-cz",
     "release:changelog:major": "standard-version --release-as major",
     "release:changelog:minor": "standard-version --release-as minor",
-    "release:changelog:patch": "standard-version --release-as patch"
+    "release:changelog:patch": "standard-version --release-as patch",
+    "publish": "pnpm ci:publish"
   },
   "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
   "repository": {
