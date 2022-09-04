@@ -5,7 +5,6 @@
   "packageManager": "pnpm@7.9.5",
   "main": "index.js",
   "scripts": {
-    "publish": "pnpm ci:publish",
     "dev": "pnpm plugin:build && pnpm component:build && pnpm docs:dev",
     "build": "pnpm plugin:build && pnpm component:build",
     "component:dev": "pnpm plugin:build && pnpm --filter=vitepress-demo-preview-component dev",
@@ -21,7 +20,8 @@
     "lint:eslint": "eslint --fix {example,packages}/**/*.{js,ts,vue,jsx,tsx}",
     "lint:prettier": "prettier --write {example,packages}/**/*.{js,ts,vue,jsx,tsx,scss,css}",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "publish": "pnpm ci:publish"
   },
   "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
   "repository": {
