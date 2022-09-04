@@ -2,6 +2,7 @@
   "name": "vitepress-demo-preview",
   "version": "0.3.1",
   "description": "preview component of code and component in vitepress",
+  "packageManager": "pnpm@7.9.5",
   "main": "index.js",
   "scripts": {
     "publish": "pnpm ci:publish",

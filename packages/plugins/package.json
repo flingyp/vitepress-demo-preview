@@ -2,6 +2,7 @@
   "name": "vitepress-demo-preview-plugin",
   "version": "0.2.2",
   "description": "preview component of plugin",
+  "packageManager": "pnpm@7.9.5",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

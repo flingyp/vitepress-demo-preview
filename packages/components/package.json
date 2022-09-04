@@ -2,7 +2,7 @@
   "name": "vitepress-demo-preview-component",
   "version": "0.3.3",
   "description": "preview component of component",
-  "packageManager": "pnpm@7.6.0",
+  "packageManager": "pnpm@7.9.5",
   "type": "module",
   "main": "./dist/preview-component.umd.cjs",
   "module": "./dist/preview-component.js",
