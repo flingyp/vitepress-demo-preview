@@ -1,5 +1,11 @@
 # vitepress-demo-preview-component
 
+## 0.3.5
+
+### Patch Changes
+
+- [`00675c2`](https://github.com/flingyp/vitepress-demo-preview/commit/00675c214828d8f27f81a0adafb9112dfc9f9d56) Thanks [@flingyp](https://github.com/flingyp)! - test automation publich packages
+
 ## 0.3.4
 
 ### Patch Changes
