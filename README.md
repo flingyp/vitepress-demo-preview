@@ -24,6 +24,8 @@ pnpm add vitepress-demo-preview-plugin -D
 
 ## ⚡Usage
 
+### preview by component form
+
 configure in your vitepress/theme entry file
 
 ```ts
@@ -55,15 +57,23 @@ export default defineConfig({
 })
 ```
 
-use in markdown file
+### preview by custom container
 
-```html
-<preview path="./xxx/xx.vue" title="标题" description="描述内容"></preview>
+configure in your vitepress/theme entry file
+
+```ts
+import DemoPreview from 'vitepress-demo-preview-component'
+import 'vitepress-demo-preview-component/dist/style.css'
+
+export default {
+  ...DefaultTheme,
+  enhanceApp({ app }: { app: App }) {
+    app.use(demoPreview)
+  }
+}
 ```
 
-## TODO
-
-- custom container
+configure markdown to add plugin
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -80,19 +90,12 @@ export default defineConfig({
 })
 ```
 
-to use
+use in markdown file
 
 ```md
-:::preview Button 按钮
+:::preview Title || component description content
 
-description=你的描述内容
+demo-preview=./xxx/xx.vue
 
-path=./xxx/xx.vue
 :::
-
-<container title='Form 表单'>
-
-path=./demoShow.vue => <demoShow></demoShow>
-
-</container>
 ```
