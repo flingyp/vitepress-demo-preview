@@ -1,9 +1,19 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.1.1/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "flingyp/vitepress-demo-preview"
+    }
+  ],
   "commit": false,
   "fixed": [],
-  "linked": [["vitepress-demo-preview-component", "vitepress-demo-preview-plugin"]],
+  "linked": [
+    [
+      "vitepress-demo-preview-component",
+      "vitepress-demo-preview-plugin"
+    ]
+  ],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
