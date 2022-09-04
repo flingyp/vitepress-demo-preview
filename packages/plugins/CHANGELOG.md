@@ -1,5 +1,11 @@
 # vitepress-demo-preview-plugin
 
+## 1.0.2
+
+### Patch Changes
+
+- [`86263c1`](https://github.com/flingyp/vitepress-demo-preview/commit/86263c1d503b2aa08062a80ef457abd641d3ddb5) Thanks [@flingyp](https://github.com/flingyp)! - 测试 Github Actions 自动发包功能
+
 ## 1.0.1
 
 ### Patch Changes
