@@ -1,25 +1,13 @@
-<preview title="Button 按钮" path="./demoShow.vue"  description="There are primary button, default button, dashed button, text button and link button in antd"></preview>
+# vitepress-demo-preview
 
-<br />
+## Preview By Component Form
 
-:::preview Form 表单 || 表单包含 输入框, 单选框, 下拉选择, 多选框 等用户输入的组件。 使用表单，您可以收集、验证和提交数据
+<preview title="Component Preview" description="preview by component form" path="./components/ComponentPreview.vue"></preview>
 
-demo-preview=./demoShow.vue
+## Preview By Custom Container Form
 
-:::
+:::preview Custom Container || Preview by custom container form
 
-<br />
-
-:::preview 我是标题 || 表单包含 输入框, 单选框, 下拉选择, 多选框 等用户输入的组件。 使用表单，您可以收集、验证和提交数据
-
-demo-preview=./demoShow2.vue
-
-:::
-
-<br />
-
-:::preview Button 按钮 || 我是 Button 按钮的介绍
-
-demo-preview=./components/MyButton.vue
+demo-preview=./components/ContainerPreview.vue
 
 :::
