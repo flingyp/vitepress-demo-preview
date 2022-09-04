@@ -1,5 +1,11 @@
 # vitepress-demo-preview-component
 
+## 0.3.7
+
+### Patch Changes
+
+- [`551c153`](https://github.com/flingyp/vitepress-demo-preview/commit/551c15355c214d0d2b13bf14fb38dcd03dbd7937) Thanks [@flingyp](https://github.com/flingyp)! - 测试 Actions
+
 ## 0.3.6
 
 ### Patch Changes
