@@ -33,6 +33,10 @@
   ],
   "author": "FlyPeng",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "vitepress": "^1.0.0-alpha.9",
     "vue": "^3.2"
