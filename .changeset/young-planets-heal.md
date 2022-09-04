@@ -2,4 +2,4 @@
 'vitepress-demo-preview-plugin': major
 ---
 
-第二种方式进行组件预览
+自定义容器实现组件预览

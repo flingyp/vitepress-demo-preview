@@ -8,12 +8,7 @@
   ],
   "commit": false,
   "fixed": [],
-  "linked": [
-    [
-      "vitepress-demo-preview-component",
-      "vitepress-demo-preview-plugin"
-    ]
-  ],
+  "linked": [],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
