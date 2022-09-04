@@ -16,12 +16,12 @@
     "example:serve": "pnpm --filter=vitepress-demo-preview-docs serve",
     "changeset": "changeset",
     "changeset-version": "changeset version",
+    "changeset-publish": "changeset publish -r",
     "lint": "pnpm lint:prettier && pnpm lint:eslint",
     "lint:eslint": "eslint --fix {example,packages}/**/*.{js,ts,vue,jsx,tsx}",
     "lint:prettier": "prettier --write {example,packages}/**/*.{js,ts,vue,jsx,tsx,scss,css}",
     "prepare": "husky install",
-    "commit": "git-cz",
-    "publish": "pnpm ci:publish"
+    "commit": "git-cz"
   },
   "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
   "repository": {
