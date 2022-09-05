@@ -1,6 +1,6 @@
 {
   "name": "@vitepress-demo-preview/component",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "type": "module",
