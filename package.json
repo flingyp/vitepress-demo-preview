@@ -3,6 +3,8 @@
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "scripts": {
+    "component:dev": "pnpm --filter=@vitepress-demo-preview/component dev",
+    "component:build": "pnpm --filter=@vitepress-demo-preview/component build",
     "lint": "pnpm lint:prettier && pnpm lint:eslint",
     "lint:eslint": "eslint --fix {example,packages}/**/*.{js,ts,vue,jsx,tsx}",
     "lint:prettier": "prettier --write {example,packages}/**/*.{js,ts,vue,jsx,tsx,scss,css}",
@@ -25,6 +27,8 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@types/node": "^18.7.14",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
