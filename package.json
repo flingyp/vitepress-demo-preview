@@ -1,0 +1,23 @@
+{
+  "name": "@vitepress-demo-preview/root",
+  "description": "preview component of code and component in vitepress",
+  "packageManager": "pnpm@7.9.5",
+  "scripts": {},
+  "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flingyp/vitepress-demo-preview.git"
+  },
+  "bugs": "https://github.com/flingyp/vitepress-demo-preview/issues",
+  "keywords": [
+    "vitepress",
+    "plugins",
+    "component"
+  ],
+  "author": "FlyPeng",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.7.14",
+    "typescript": "^4.8.2"
+  }
+}
