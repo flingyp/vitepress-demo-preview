@@ -3,8 +3,11 @@
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "scripts": {
+    "build": "component:build && plugin:build",
     "component:dev": "pnpm --filter=@vitepress-demo-preview/component dev",
     "component:build": "pnpm --filter=@vitepress-demo-preview/component build",
+    "plugin:dev": "pnpm --filter=@vitepress-demo-preview/plugin dev",
+    "plugin:build": "pnpm --filter=@vitepress-demo-preview/plugin build",
     "lint": "pnpm lint:prettier && pnpm lint:eslint",
     "lint:eslint": "eslint --fix {example,packages}/**/*.{js,ts,vue,jsx,tsx}",
     "lint:prettier": "prettier --write {example,packages}/**/*.{js,ts,vue,jsx,tsx,scss,css}",

@@ -1,0 +1,54 @@
+{
+  "name": "@vitepress-demo-preview/plugin",
+  "version": "0.0.0",
+  "description": "preview component of code and component in vitepress",
+  "packageManager": "pnpm@7.9.5",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "types.d.ts"
+  ],
+  "scripts": {
+    "dev": "rollup --config rollup.config.ts --watch",
+    "build": "rollup --config rollup.config.ts"
+  },
+  "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flingyp/vitepress-demo-preview.git"
+  },
+  "bugs": "https://github.com/flingyp/vitepress-demo-preview/issues",
+  "keywords": [
+    "vitepress",
+    "plugins",
+    "component"
+  ],
+  "author": "FlyPeng",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.2",
+    "vitepress": "^1.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.4.0",
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-container": "^2.0.5",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0",
+    "rollup": "^2.78.1",
+    "rollup-plugin-dts": "^4.2.2",
+    "tslib": "^2.4.0",
+    "vitepress": "1.0.0-alpha.9"
+  }
+}
