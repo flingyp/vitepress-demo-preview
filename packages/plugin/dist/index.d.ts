@@ -1,3 +1,6 @@
-declare const sayHello: () => void
+import { MarkdownRenderer } from 'vitepress'
 
-export { sayHello }
+declare const componentPreview: (md: MarkdownRenderer) => void
+declare const containerPreview: (md: MarkdownRenderer) => void
+
+export { componentPreview, containerPreview }
