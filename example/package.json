@@ -13,6 +13,8 @@
     "vitepress": "^1.0.0-alpha.13"
   },
   "dependencies": {
+    "@vitepress-demo-preview/component": "workspace:^0.1.0",
+    "@vitepress-demo-preview/plugin": "workspace:^0.1.0",
     "vue": "^3.2.38"
   }
 }
