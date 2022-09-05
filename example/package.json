@@ -16,6 +16,5 @@
     "@vitepress-demo-preview/component": "workspace:^1.0.0",
     "@vitepress-demo-preview/plugin": "workspace:^1.0.0",
     "vue": "^3.2.38"
-  },
-  "version": null
+  }
 }
