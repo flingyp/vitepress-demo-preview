@@ -2,7 +2,12 @@
   "name": "@vitepress-demo-preview/root",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
-  "scripts": {},
+  "scripts": {
+    "lint": "pnpm lint:prettier && pnpm lint:eslint",
+    "lint:eslint": "eslint --fix {example,packages}/**/*.{js,ts,vue,jsx,tsx}",
+    "lint:prettier": "prettier --write {example,packages}/**/*.{js,ts,vue,jsx,tsx,scss,css}",
+    "prepare": "husky install"
+  },
   "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
   "repository": {
     "type": "git",
@@ -17,7 +22,31 @@
   "author": "FlyPeng",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@types/node": "^18.7.14",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.4.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "typescript": "^4.8.2"
+  },
+  "lint-staged": {
+    "{packages, example}/**/*.{js,ts,vue,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
