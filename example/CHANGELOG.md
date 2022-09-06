@@ -5,6 +5,13 @@
 ### Patch Changes
 
 - Updated dependencies
+  - @vitepress-demo-preview/plugin@1.0.2
+
+## null
+
+### Patch Changes
+
+- Updated dependencies
   - @vitepress-demo-preview/plugin@1.0.1
 
 ## null
