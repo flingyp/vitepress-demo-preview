@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "@vitepress-demo-preview/example",
   "private": "true",
   "type": "module",
   "scripts": {

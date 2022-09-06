@@ -49,6 +49,7 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
 
   // 组件名
   const componentName = _dirArr[_dirArr.length - 1].split('.')[0] || defaultComponentName
+  console.log('componentName->', componentName)
   // 后缀名
   const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
 

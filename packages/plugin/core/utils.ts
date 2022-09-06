@@ -10,6 +10,18 @@ const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/
 const scriptClientRE = /<\s*script[^>]*\bclient\b[^>]*/
 
 /**
+ * 统一处理组件名称->驼峰命名
+ * @param componentName
+ */
+export const handleComponentName = (componentName: string) => {
+  let newName = componentName
+  newName = newName.replaceAll(/[_|-]+(\w)/g, ($0, $1) => {
+    return $1.toUpperCase()
+  })
+  return newName
+}
+
+/**
  * 注入 script 脚本
  * @param mdInstance
  * @param path
@@ -26,17 +38,20 @@ export const injectComponentImportScript = (env: any, path: string, componentNam
     return false
   })
 
+  // 统一处理组件名称为驼峰命名
+  const _componentName = handleComponentName(componentName)
+
   if (scriptsSetupIndex !== -1) {
     const oldScriptsSetup = scriptsCode[scriptsSetupIndex]
     // 已经注册了注册
-    if (oldScriptsSetup.content.includes(path) && oldScriptsSetup.content.includes(componentName)) {
+    if (oldScriptsSetup.content.includes(path) && oldScriptsSetup.content.includes(_componentName)) {
       scriptsCode[scriptsSetupIndex].content = oldScriptsSetup.content
     } else {
-      // 添加组件 import ${componentName} from '${path}'\n
+      // 添加组件 import ${_componentName} from '${path}'\n
       scriptsCode[scriptsSetupIndex].content = oldScriptsSetup.content.replace(
         "<script setup lang='ts'>\n",
         `<script setup lang='ts'>\n
-            import ${componentName} from '${path}'\n`
+            import ${_componentName} from '${path}'\n`
       )
     }
   } else {
@@ -46,9 +61,9 @@ export const injectComponentImportScript = (env: any, path: string, componentNam
       tagClose: '</script>',
       tagOpen: "<script setup lang='ts'>",
       content: `<script setup lang='ts'>
-        import ${componentName} from '${path}'
+        import ${_componentName} from '${path}'
         </script>`
-      //   contentStripped: `import ${componentName} from '${path}'`
+      //   contentStripped: `import ${_componentName} from '${path}'`
     }
     scriptsCode.push(scriptBlockObj)
   }
