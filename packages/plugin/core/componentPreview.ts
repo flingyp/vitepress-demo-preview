@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
+import MarkdownIt from 'markdown-it'
 import Token from 'markdown-it/lib/token'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
-import { MarkdownRenderer } from 'vitepress'
 import { injectComponentImportScript, transformHighlightCode } from './utils'
 
 const getPropsReg =
@@ -22,7 +22,7 @@ export interface DefaultProps {
  * @param env
  * @returns
  */
-export const transformPreview = (md: MarkdownRenderer, token: Token, env: any) => {
+export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   const componentProps: DefaultProps = {
     path: '',
     title: '默认标题',

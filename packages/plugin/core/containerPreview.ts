@@ -5,7 +5,6 @@ import Token from 'markdown-it/lib/token'
 import Renderer from 'markdown-it/lib/renderer'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
-import { MarkdownRenderer } from 'vitepress'
 import markdownItContainer from 'markdown-it-container'
 import { injectComponentImportScript, isCheckContainerPreview, transformHighlightCode } from './utils'
 
@@ -16,7 +15,7 @@ const parseContainerParamRE = /^preview\s(.+)\s\|\|\s(.*)$/
  * 自定义容器的注册
  * @param md
  */
-export const containerDirectiveMount = (md: MarkdownRenderer) => {
+export const containerDirectiveMount = (md: MarkdownIt) => {
   md.use(markdownItContainer, 'preview', {
     marker: ':',
     validate: (params: any) => {
@@ -32,7 +31,7 @@ export const containerDirectiveMount = (md: MarkdownRenderer) => {
  * @param md
  */
 const defaultComponentName = 'component-preview'
-export const parseContainerTag = (md: MarkdownRenderer) => {
+export const parseContainerTag = (md: MarkdownIt) => {
   // 开始标签 :::preview
   const defaultContainerPreviewOpenRender = md.renderer.rules.container_preview_open!
   md.renderer.rules.container_preview_open = (
@@ -96,7 +95,7 @@ export const parseContainerTag = (md: MarkdownRenderer) => {
  * 解析自定义容器
  * @param md
  */
-export const parseContainer = (md: MarkdownRenderer) => {
+export const parseContainer = (md: MarkdownIt) => {
   const defaultHtmlTextRender = md.renderer.rules.text!
   md.renderer.rules.text = (tokens: Token[], idx: number, options: MarkdownIt.Options, env: any, self: Renderer) => {
     const token = tokens[idx]

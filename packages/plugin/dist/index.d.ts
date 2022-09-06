@@ -1,6 +1,6 @@
-import { MarkdownRenderer } from 'vitepress'
+import MarkdownIt from 'markdown-it'
 
-declare const componentPreview: (md: MarkdownRenderer) => void
-declare const containerPreview: (md: MarkdownRenderer) => void
+declare const componentPreview: (md: MarkdownIt) => void
+declare const containerPreview: (md: MarkdownIt) => void
 
 export { componentPreview, containerPreview }

@@ -1,12 +1,11 @@
 import MarkdownIt from 'markdown-it'
 import Renderer from 'markdown-it/lib/renderer'
 import Token from 'markdown-it/lib/token'
-import { MarkdownRenderer } from 'vitepress'
 import { isCheckPreviewCom } from './utils'
 import { transformPreview } from './componentPreview'
 import { containerDirectiveMount, parseContainer, parseContainerTag } from './containerPreview'
 
-export const componentPreview = (md: MarkdownRenderer) => {
+export const componentPreview = (md: MarkdownIt) => {
   const defaultHtmlInlineRender = md.renderer.rules.html_inline!
   // eslint-disable-next-line no-param-reassign
   md.renderer.rules.html_inline = (
@@ -24,7 +23,7 @@ export const componentPreview = (md: MarkdownRenderer) => {
   }
 }
 
-export const containerPreview = (md: MarkdownRenderer) => {
+export const containerPreview = (md: MarkdownIt) => {
   containerDirectiveMount(md)
   parseContainerTag(md)
   parseContainer(md)

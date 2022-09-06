@@ -1,4 +1,4 @@
-import { MarkdownRenderer } from 'vitepress'
+import MarkdownIt from 'markdown-it'
 
 // componentPreview Check
 export const isCheckPreviewCom = /^<preview (.*)><\/preview>$/
@@ -61,5 +61,5 @@ export const injectComponentImportScript = (env: any, path: string, componentNam
  * @param suffix
  * @returns
  */
-export const transformHighlightCode = (mdInstance: MarkdownRenderer, sourceCode: string, suffix: string) =>
+export const transformHighlightCode = (mdInstance: MarkdownIt, sourceCode: string, suffix: string) =>
   mdInstance.options.highlight!(sourceCode, suffix, '')
