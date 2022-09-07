@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/flingyp/vitepress-demo-preview/compare/v1.0.0...v1.1.0) (2022-09-07)
+
+
+### ✨ Features | 新功能
+
+* 组件代码块直接展开折叠高度过渡效果 ([079b3dd](https://github.com/flingyp/vitepress-demo-preview/commit/079b3dd3e00e4e0c6e6fa42e6dc4bae544b1ac86))
+
 ## 1.0.0 (2022-09-06)
 
 
