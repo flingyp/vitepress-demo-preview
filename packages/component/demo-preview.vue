@@ -60,7 +60,7 @@
     </section>
     <section :class="[ns.bem('description')]">
       <div :class="[ns.bem('description', 'title')]">
-        <span>{{ title }}</span>
+        {{ title }}
       </div>
       <div :class="[ns.bem('description', 'content')]">{{ description }}</div>
       <div :class="[ns.bem('description', 'split-line')]"></div>

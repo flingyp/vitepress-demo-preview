@@ -9,6 +9,7 @@
   border-radius: 4px;
   border: 1px solid var(--component-preview-border);
   box-shadow: 0px 0px 10px var(--component-preview-border);
+  overflow: hidden;
 
   .#{$defaultPrefix}-preview,
   .#{$defaultPrefix}-description,
@@ -29,13 +30,25 @@
 .#{$defaultPrefix}-description {
   .#{$defaultPrefix}-description__title {
     width: 100%;
-    border-top: 1px solid var(--component-preview-border);
     position: relative;
+    padding-left: 25px;
 
-    & span:first-of-type {
+    &::before {
+      content: '';
       position: absolute;
-      top: -12px;
-      left: 20px;
+      width: 3%;
+      border-top: 1px solid var(--component-preview-border);
+      top: 12px;
+      left: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      border-top: 1px solid var(--component-preview-border);
+      top: 12px;
+      margin-left: 5px;
     }
   }
 
