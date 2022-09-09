@@ -8,6 +8,6 @@
 
 :::preview Custom Container || Preview by custom container form
 
-demo-preview=./components/ContainerPreview.vue
+demo-preview=./components/ComponentPreview.vue
 
 :::
