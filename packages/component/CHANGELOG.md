@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 1.1.1
+
+### Patch Changes
+
+- 组件分割线处理、插件 script 脚本代码块处理
+
 ## 1.1.0
 
 ### Minor Changes
