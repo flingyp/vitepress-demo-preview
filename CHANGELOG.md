@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/flingyp/vitepress-demo-preview/compare/v1.1.0...v1.1.1) (2022-09-09)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 处理MD文件中本身存在 <script setups> 相关代码块的情况 ([07acaea](https://github.com/flingyp/vitepress-demo-preview/commit/07acaea94b6edc33c205e095af0c3c3a4d4c60b3))
+* 修改DemoPreview组件容器的标题左右的分割线样式 ([d670e28](https://github.com/flingyp/vitepress-demo-preview/commit/d670e2884f42409c8d0d1c82c2795045b1d47222))
+
 ## [1.1.0](https://github.com/flingyp/vitepress-demo-preview/compare/v1.0.0...v1.1.0) (2022-09-07)
 
 
