@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 1.1.2
+
+### Patch Changes
+
+- 调整组件相关样式
+
 ## 1.1.1
 
 ### Patch Changes
