@@ -2,7 +2,7 @@
   "name": "@vitepress-demo-preview/example",
   "private": "true",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@vitepress-demo-preview/component": "workspace:^1.1.2",
-    "@vitepress-demo-preview/plugin": "workspace:^1.1.1",
+    "@vitepress-demo-preview/plugin": "workspace:^1.1.3",
     "vue": "^3.2.38"
   }
 }
