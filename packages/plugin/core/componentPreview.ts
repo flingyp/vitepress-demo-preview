@@ -30,17 +30,17 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   }
   // 获取Props相关参数
   const tokenContentArr = token.content.match(getPropsReg)!
-
-  tokenContentArr.forEach((item, index) => {
-    item = item.replaceAll(/"|"/gi, '').trim()
+  tokenContentArr.shift()
+  for (let i = 0; i < tokenContentArr.length; i += 2) {
+    const item = tokenContentArr[i]
     if (item === 'path') {
-      componentProps.path = tokenContentArr[index + 1].replaceAll(/"|"/gi, '').trim()
+      componentProps.path = tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim()
     } else if (item === 'title') {
-      componentProps.title = tokenContentArr[index + 1].replaceAll(/"|"/gi, '').trim()
+      componentProps.title = tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim()
     } else if (item === 'description') {
-      componentProps.description = tokenContentArr[index + 1].replaceAll(/"|"/gi, '').trim()
+      componentProps.description = tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim()
     }
-  })
+  }
 
   // 组件绝对路径
   const componentPath = resolve(dirname(env.path), componentProps.path || '.')

@@ -2,7 +2,7 @@
 
 ## Preview By Component Form
 
-<preview title="Component Preview" description="preview by component form" path="./components/ComponentPreview.vue"></preview>
+<preview path="./components/ComponentPreview.vue" title="Custom Container" description="Preview by custom container form"></preview>
 
 ## Preview By Custom Container Form
 
