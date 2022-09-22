@@ -11,7 +11,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
     "vite": "^3.0.9",
-    "vitepress": "^1.0.0-alpha.13"
+    "vitepress": "^1.0.0-alpha.15"
   },
   "dependencies": {
     "@vitepress-demo-preview/component": "workspace:^1.1.1",
