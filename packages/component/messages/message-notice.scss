@@ -1,12 +1,13 @@
 @import '../styles/various.scss';
 
 .#{$defaultPrefix}-message-notice__container {
+  display: flex;
+  align-items: center;
   border: 1px solid var(--component-preview-border);
   padding: 8px 30px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--component-preview-primary-color);
-  box-shadow: 0px 0px 5px var(--component-preview-primary-color);
   position: fixed;
   left: 50%;
   transform: translateX(-50%);

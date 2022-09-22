@@ -5,7 +5,10 @@ export default defineConfig({
   title: 'vitepress-demo-preview',
   description: 'Just playing around.',
   markdown: {
-    theme: 'github-dark',
+    theme: {
+      light: 'vitesse-light',
+      dark: 'vitesse-dark'
+    },
     lineNumbers: true,
     config(md) {
       md.use(componentPreview)
