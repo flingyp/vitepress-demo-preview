@@ -22,7 +22,7 @@ jobs:
         run: npm install pnpm -g
       # 下载依赖
       - name: Install dependencies and Build
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       # Packages Build
       - name: Packages Build
         run: pnpm run build
