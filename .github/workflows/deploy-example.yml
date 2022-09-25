@@ -1,0 +1,39 @@
+name: Build and Deploy Example
+# 监听 main 分支的推送
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  # job 名
+  build-and-deploy:
+    # 运行环境
+    runs-on: ubuntu-latest
+    # 运行步骤
+    steps:
+      # 获取源码
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+      # 安装Pnpm
+      - name: Install Pnpm
+        run: npm install pnpm -g
+      # 下载依赖
+      - name: Install dependencies and Build
+        run: pnpm install
+      # Packages Build
+      - name: Packages Build
+        run: pnpm run build
+      # Docs 安装依赖
+      - name: Docs install dependencies
+        run: pnpm run example:build
+      # 发布
+      # 发布在 gh-pages 分支，会自动创建
+      # 将打包后的 dist 目录放到 gh-pages 分支
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: example/.vitepress/dist
