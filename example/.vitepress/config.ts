@@ -4,6 +4,9 @@ import { componentPreview, containerPreview } from '@vitepress-demo-preview/plug
 export default defineConfig({
   base: '/vitepress-demo-preview',
   title: 'vitepress-demo-preview',
+  themeConfig: {
+    socialLinks: [{ icon: 'github', link: 'https://github.com/flingyp/vitepress-demo-preview' }]
+  },
   description: 'Just playing around.',
   markdown: {
     theme: {
