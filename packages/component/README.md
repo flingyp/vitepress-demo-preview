@@ -67,13 +67,13 @@ use in markdown file
 configure in your vitepress/theme entry file
 
 ```ts
-import DemoPreview from '@vitepress-demo-preview/component'
+import { AntDesignContainer } from '@vitepress-demo-preview/component'
 import '@vitepress-demo-preview/component/dist/style.css'
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: App }) {
-    app.use(DemoPreview)
+    app.component('demo-preview', AntDesignContainer)
   }
 }
 ```
@@ -102,3 +102,10 @@ demo-preview=./xxx/xx.vue
 
 :::
 ```
+
+## 👊 TODO
+
+- [ ] Integration demo component of other UI frameworks
+  - [x] Ant Design Container
+  - [ ] ElementPlus Container
+  - [ ] Naive UI Container
