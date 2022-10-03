@@ -9,6 +9,7 @@
   border-radius: 4px;
   border: 1px solid var(--component-preview-border);
   box-shadow: 0px 0px 10px var(--component-preview-border);
+  margin: 10px 0;
   overflow: hidden;
 
   .#{$defaultPrefix}-preview,
