@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.0.0
+
+### Major Changes
+
+- modify the usage of components package
+
 ## 1.1.2
 
 ### Patch Changes
