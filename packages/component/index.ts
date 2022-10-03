@@ -1,10 +1,3 @@
-import type { App } from 'vue'
-import DemoPreview from './demo-preview.vue'
+import AntDesignContainer from './container/ant-design-ui/AntDesign.vue'
 
-const COMPONENT_NAME = 'demo-preview'
-
-export default {
-  install(app: App) {
-    app.component(COMPONENT_NAME, DemoPreview)
-  }
-}
+export { AntDesignContainer }

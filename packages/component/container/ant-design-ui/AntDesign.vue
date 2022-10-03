@@ -1,12 +1,12 @@
 <script lang="ts" setup>
   import { ref, onMounted, watch, computed } from 'vue'
-  import CodeOpen from './icons/code-open.vue'
-  import CodeClose from './icons/code-close.vue'
-  import CodeCopy from './icons/code-copy.vue'
-  import { useNameSpace } from './hooks/use-namespaces'
-  import { useCodeFold } from './hooks/use-codefold'
-  import { useCodeCopy } from './hooks/use-codecopy'
-  import { MessageNoticeService } from './messages/index'
+  import CodeOpen from '../../icons/code-open.vue'
+  import CodeClose from '../../icons/code-close.vue'
+  import CodeCopy from '../../icons/code-copy.vue'
+  import { useNameSpace } from '../../hooks/use-namespaces'
+  import { useCodeFold } from '../../hooks/use-codefold'
+  import { useCodeCopy } from '../../hooks/use-codecopy'
+  import { MessageNoticeService } from '../../messages/index'
 
   interface DemoBlockProps {
     code: string
@@ -77,5 +77,5 @@
   </div>
 </template>
 
-<style src="./styles/demo-block.scss"></style>
-<style src="./styles/demo-code.scss"></style>
+<style src="../../styles/demo-block.scss"></style>
+<style src="../../styles/demo-code.scss"></style>
