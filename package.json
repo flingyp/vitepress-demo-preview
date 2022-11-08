@@ -18,7 +18,8 @@
     "copy": "esno ./scripts/copy.ts",
     "prepare": "husky install",
     "changeset": "changeset",
-    "changeset-version": "changeset version"
+    "changeset-version": "changeset version",
+    "commit": "git-cz"
   },
   "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
   "repository": {
