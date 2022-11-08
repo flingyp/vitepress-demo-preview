@@ -25,45 +25,6 @@ pnpm add @vitepress-demo-preview/component @vitepress-demo-preview/plugin
 
 ## ⚡Usage
 
-### Preview of Component Form
-
-configure in your vitepress/theme entry file
-
-```ts
-import DemoPreview from '@vitepress-demo-preview/component'
-import '@vitepress-demo-preview/component/dist/style.css'
-
-export default {
-  ...DefaultTheme,
-  enhanceApp({ app }: { app: App }) {
-    app.use(DemoPreview)
-  }
-}
-```
-
-configure markdown to add plugin
-
-```ts
-import { defineConfig } from 'vitepress'
-import { componentPreview } from '@vitepress-demo-preview/plugin'
-
-export default defineConfig({
-  markdown: {
-    config(md) {
-      md.use(componentPreview)
-    }
-  }
-})
-```
-
-use in markdown file
-
-```md
-<preview path="./xxx/xx.vue" title="title" description="component description content"></preview>
-```
-
-### Preview by Container Form
-
 configure in your vitepress/theme entry file
 
 ```ts
@@ -89,11 +50,17 @@ export default defineConfig({
     config(md) {
       md.use(containerPreview)
     }
-  }
+  }v
 })
 ```
 
-use in markdown file
+### Preview of Component Form
+
+```md
+<preview path="./xxx/xx.vue" title="title" description="component description content"></preview>
+```
+
+### Preview by Container Form
 
 ```md
 :::preview title || component description content
