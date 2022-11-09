@@ -36,9 +36,9 @@
   "author": "FlyPeng",
   "license": "MIT",
   "peerDependencies": {
-    "vitepress": "^1.0.0",
-    "vue": "^3.2",
-    "markdown-it-container": "^3.0"
+    "vitepress": ">=1.0.0",
+    "vue": "^3.2.0",
+    "markdown-it-container": "^3.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.4.0",
