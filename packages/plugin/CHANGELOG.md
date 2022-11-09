@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.4
+
+### Patch Changes
+
+- handling dependent installation issues
+
 ## 1.1.3
 
 ### Patch Changes

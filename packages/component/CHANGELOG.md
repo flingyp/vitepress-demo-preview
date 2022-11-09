@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.0.1
+
+### Patch Changes
+
+- handling dependent installation issues
+
 ## 2.0.0
 
 ### Major Changes
