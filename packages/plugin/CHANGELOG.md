@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.5
+
+### Patch Changes
+
+- peerDependencies question
+
 ## 1.1.4
 
 ### Patch Changes

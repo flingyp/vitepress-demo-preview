@@ -1,6 +1,6 @@
 {
   "name": "@vitepress-demo-preview/plugin",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "main": "./dist/index.cjs",
@@ -36,7 +36,7 @@
   "author": "FlyPeng",
   "license": "MIT",
   "peerDependencies": {
-    "vitepress": ">=1.0.0",
+    "vitepress": "*",
     "vue": "^3.2.0",
     "markdown-it-container": "^3.0.0"
   },
