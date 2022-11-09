@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://s1.328888.xyz/2022/08/24/wDqX7.png" width="100" />
 	<h1 style="margin:10px">vitepress-demo-preview</h1>
 	<h6 align="center">Demo of Vue SFC components in vitepress</h6>
 </div>

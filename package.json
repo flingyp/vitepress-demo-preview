@@ -2,7 +2,7 @@
   "name": "@vitepress-demo-preview/root",
   "version": "2.0.1",
   "description": "preview component of code and component in vitepress",
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@7.12.1",
   "scripts": {
     "build": "pnpm copy && pnpm component:build && pnpm plugin:build",
     "component:dev": "pnpm --filter=@vitepress-demo-preview/component dev",
