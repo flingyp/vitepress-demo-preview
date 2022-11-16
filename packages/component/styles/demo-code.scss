@@ -1,9 +1,0 @@
-@import './various.scss';
-
-.#{$defaultPrefix}__container {
-  div[class*='language-'] {
-    margin-top: 0;
-    margin-bottom: 0;
-    background-color: var(--component-preview-bg);
-  }
-}

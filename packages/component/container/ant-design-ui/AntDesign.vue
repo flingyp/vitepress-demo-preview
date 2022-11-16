@@ -77,5 +77,4 @@
   </div>
 </template>
 
-<style src="../../styles/demo-block.scss"></style>
-<style src="../../styles/demo-code.scss"></style>
+<style src="./ant-design.scss"></style>

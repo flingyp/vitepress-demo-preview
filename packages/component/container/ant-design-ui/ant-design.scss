@@ -1,7 +1,15 @@
-@import './various.scss';
+@import '../../styles/various.scss';
 
 .#{$defaultPrefix}__container > * {
   font-size: 14px;
+}
+
+.#{$defaultPrefix}__container {
+  div[class*='language-'] {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: var(--component-preview-bg);
+  }
 }
 
 .#{$defaultPrefix}__container {
