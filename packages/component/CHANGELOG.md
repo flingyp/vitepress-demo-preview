@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.1.0
+
+### Minor Changes
+
+- add element-plus container
+
 ## 2.0.2
 
 ### Patch Changes
