@@ -1,6 +1,6 @@
 @import '../../styles/various.scss';
 
-$componentPrefix: 'ant-design';
+$componentPrefix: 'element-plus';
 $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
 
 .#{$containerPrefix}__container > * {
@@ -33,7 +33,6 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
 
 .#{$containerPrefix}__container > .#{$defaultPrefix}-preview {
   padding: 20px 20px 30px 20px;
-
   & > p {
     margin: 0;
     padding: 0;
@@ -76,10 +75,11 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
   .#{$defaultPrefix}-description__handle-btn {
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 20px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 
     svg {
       width: 16px;

@@ -11,7 +11,7 @@ interface UseNameSpaceReturn {
   b: () => string
   e: (element: string) => string
   m: (modifier: string) => string
-  bem: (element: string, modifier: string) => string
+  bem: (_block?: string, element?: string, modifier?: string) => string
 }
 
 const defaultPrefix = 'vitepress-demo-preview'

@@ -54,15 +54,11 @@
 
 <template>
   <!-- <ClientOnly></ClientOnly> -->
-  <div :class="[ns.e('ant-design__container')]">
+  <div :class="[ns.e('element-plus__container')]">
     <section :class="[ns.bem('preview')]">
       <slot> </slot>
     </section>
     <section :class="[ns.bem('description')]">
-      <div :class="[ns.bem('description', 'title')]">
-        {{ title }}
-      </div>
-      <div :class="[ns.bem('description', 'content')]">{{ description }}</div>
       <div :class="[ns.bem('description', 'split-line')]"></div>
       <div :class="[ns.bem('description', 'handle-btn')]">
         <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
@@ -70,11 +66,10 @@
         <CodeCopy @click="clickCodeCopy" />
       </div>
     </section>
-
     <section :class="[ns.bem('source')]" ref="sourceCodeArea">
       <div v-html="showSourceCode" class="language-vue"></div>
     </section>
   </div>
 </template>
 
-<style src="./ant-design.scss"></style>
+<style src="./element-plus.scss"></style>
