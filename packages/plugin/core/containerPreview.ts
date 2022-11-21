@@ -101,7 +101,7 @@ export const parseContainer = (md: MarkdownIt) => {
     const token = tokens[idx]
     if (token.type === 'text' && token.content.match(isCheckContainerPreview)) {
       const componentRelativePath = token.content.match(isCheckContainerPreview)![1]
-      const componentName = token.content.match(/.*\/(.*).vue$/)![1]
+      const componentName = token.content.match(/.*\/(.*).(vue|tsx)$/)![1]
       injectComponentImportScript(env, componentRelativePath, componentName)
       return `<${componentName}></${componentName}>`
     }
