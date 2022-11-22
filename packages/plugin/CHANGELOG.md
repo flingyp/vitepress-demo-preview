@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.6
+
+### Patch Changes
+
+- add tsx support
+
 ## 1.1.5
 
 ### Patch Changes
