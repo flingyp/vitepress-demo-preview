@@ -11,6 +11,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "jsx": "preserve",
     "paths": {
       "tslib": ["node_modules/tslib/tslib.d.ts"]
     }
@@ -21,8 +22,7 @@
   "include": [
     "packages/**/*.ts",
     "packages/**/*.vue",
-    "example/**/*.ts",
-    "example/**/*.vue",
+    "example/**/*",
     "example/.vitepress/**/*.ts",
     "example/.vitepress/**/*.vue"
   ],
