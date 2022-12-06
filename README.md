@@ -27,7 +27,7 @@ pnpm add @vitepress-demo-preview/component @vitepress-demo-preview/plugin
 configure in your vitepress/theme entry file
 
 ```ts
-import { AntDesignContainer } from '@vitepress-demo-preview/component'
+import { AntDesignContainer, ElementPlusContainer, NaiveUIContainer } from '@vitepress-demo-preview/component'
 import '@vitepress-demo-preview/component/dist/style.css'
 
 export default {
@@ -73,5 +73,5 @@ demo-preview=./xxx/xx.vue
 
 - [ ] Integration demo component of other UI frameworks
   - [x] Ant Design Container
-  - [ ] ElementPlus Container
-  - [ ] Naive UI Container
+  - [x] ElementPlus Container
+  - [x] Naive UI Container
