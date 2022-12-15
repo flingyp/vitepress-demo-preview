@@ -46,8 +46,7 @@
     "@types/markdown-it-container": "^2.0.5",
     "rollup": "^2.78.1",
     "rollup-plugin-dts": "^4.2.2",
-    "tslib": "^2.4.0",
-    "vitepress": "1.0.0-alpha.9"
+    "tslib": "^2.4.0"
   },
   "dependencies": {
     "markdown-it": "^13.0.1",
