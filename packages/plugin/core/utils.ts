@@ -1,6 +1,6 @@
 import MarkdownIt from 'markdown-it'
 
-// componentPreview Check
+// componentPreview check
 export const isCheckPreviewCom = /^<preview (.*)><\/preview>$/
 export const isCheckContainerPreview = /^demo-preview=(.+)$/
 

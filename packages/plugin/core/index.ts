@@ -7,7 +7,6 @@ import { containerDirectiveMount, parseContainer, parseContainerTag } from './co
 
 export const componentPreview = (md: MarkdownIt) => {
   const defaultHtmlInlineRender = md.renderer.rules.html_inline!
-  // eslint-disable-next-line no-param-reassign
   md.renderer.rules.html_inline = (
     tokens: Token[],
     idx: number,
