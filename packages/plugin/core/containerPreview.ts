@@ -6,6 +6,7 @@ import Renderer from 'markdown-it/lib/renderer'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import markdownItContainer from 'markdown-it-container'
+import { useRandomString } from '@flypeng/tool/browser'
 import { injectComponentImportScript, isCheckContainerPreview, transformHighlightCode } from './utils'
 
 const validateContainerRE = /^preview\s+(.*)$/
@@ -101,7 +102,7 @@ export const parseContainer = (md: MarkdownIt) => {
     const token = tokens[idx]
     if (token.type === 'text' && token.content.match(isCheckContainerPreview)) {
       const componentRelativePath = token.content.match(isCheckContainerPreview)![1]
-      const componentName = token.content.match(/.*\/(.*).(vue|tsx)$/)![1]
+      const componentName = `${token.content.match(/.*\/(.*).(vue|tsx)$/)![1]}${useRandomString(6)}`
       injectComponentImportScript(env, componentRelativePath, componentName)
       return `<${componentName}></${componentName}>`
     }

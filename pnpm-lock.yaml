@@ -81,6 +81,7 @@ importers:
 
   packages/plugin:
     specifiers:
+      '@flypeng/tool': ^5.1.0
       '@rollup/plugin-typescript': ^8.4.0
       '@types/markdown-it': ^12.2.3
       '@types/markdown-it-container': ^2.0.5
@@ -90,6 +91,7 @@ importers:
       rollup-plugin-dts: ^4.2.2
       tslib: ^2.4.0
     dependencies:
+      '@flypeng/tool': 5.1.0
       markdown-it: 13.0.1
       markdown-it-container: 3.0.0
     devDependencies:
@@ -1209,6 +1211,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@flypeng/tool/5.1.0:
+    resolution: {integrity: sha512-dfedOUE7NdJ6I1cg9iezJQr1LulDs1KXXZhY8EZAAMBYGdZeA2frXKgatl2mOQm8Dam06O3/LF14cm7rhjOgjw==}
+    dev: false
 
   /@humanwhocodes/config-array/0.11.7:
     resolution: {integrity: sha512-kBbPWzN8oVMLb0hOUYXhmxggL/1cJE6ydvjDIGi9EnAGUyA7cLVKQg+d/Dsm+KZwx2czGHrCmMVLiyg8s5JPKw==}
