@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.7
+
+### Patch Changes
+
+- fix: same components name leads to the introduction of conflict fix #15
+
 ## 1.1.6
 
 ### Patch Changes
