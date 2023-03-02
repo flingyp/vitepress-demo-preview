@@ -62,7 +62,7 @@
       <div :class="[ns.bem('description', 'title')]">
         {{ title }}
       </div>
-      <div :class="[ns.bem('description', 'content')]">{{ description }}</div>
+      <div :class="[ns.bem('description', 'content')]" v-html="description"></div>
       <div :class="[ns.bem('description', 'split-line')]"></div>
       <div :class="[ns.bem('description', 'handle-btn')]">
         <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
