@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.2.0
+
+### Minor Changes
+
+- ant-design-ui description support render html format string
+
 ## 2.1.0
 
 ### Minor Changes
