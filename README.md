@@ -74,5 +74,5 @@ demo-preview=./xxx/xx.vue
 
 - [ ] Integration demo component of other UI frameworks
   - [x] Ant Design Container
-  - [ ] ElementPlus Container
+  - [x] ElementPlus Container
   - [ ] Naive UI Container
