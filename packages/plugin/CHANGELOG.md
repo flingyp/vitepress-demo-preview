@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.9
+
+### Patch Changes
+
+- fix build error
+
 ## 1.1.8
 
 ### Patch Changes
