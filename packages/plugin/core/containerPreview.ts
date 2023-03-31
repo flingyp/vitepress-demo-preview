@@ -6,8 +6,12 @@ import Renderer from 'markdown-it/lib/renderer'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import markdownItContainer from 'markdown-it-container'
-import { useRandomString } from '@flypeng/tool/browser'
-import { injectComponentImportScript, isCheckContainerPreview, transformHighlightCode } from './utils'
+import {
+  composeComponentName,
+  injectComponentImportScript,
+  isCheckContainerPreview,
+  transformHighlightCode
+} from './utils'
 
 const validateContainerRE = /^preview\s+(.*)$/
 const parseContainerParamRE = /^preview\s(.+)\s\|\|\s(.*)$/
@@ -31,7 +35,6 @@ export const containerDirectiveMount = (md: MarkdownIt) => {
  * 解析自定义日期的Tag
  * @param md
  */
-const defaultComponentName = 'component-preview'
 export const parseContainerTag = (md: MarkdownIt) => {
   // 开始标签 :::preview
   const defaultContainerPreviewOpenRender = md.renderer.rules.container_preview_open!
@@ -49,9 +52,6 @@ export const parseContainerTag = (md: MarkdownIt) => {
     // 组件绝对路径
     const componentPath = resolve(dirname(env.path), componentRelativePath || '.')
 
-    const _dirArr = componentRelativePath.split('/')
-    // 组件名
-    const componentName = _dirArr[_dirArr.length - 1].split('.')[0] || defaultComponentName
     // 后缀名
     const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
     // 组件源码
@@ -102,7 +102,7 @@ export const parseContainer = (md: MarkdownIt) => {
     const token = tokens[idx]
     if (token.type === 'text' && token.content.match(isCheckContainerPreview)) {
       const componentRelativePath = token.content.match(isCheckContainerPreview)![1]
-      const componentName = `${token.content.match(/.*\/(.*).(vue|tsx)$/)![1]}${useRandomString(6)}`
+      const componentName = composeComponentName(componentRelativePath)
       injectComponentImportScript(env, componentRelativePath, componentName)
       return `<${componentName}></${componentName}>`
     }

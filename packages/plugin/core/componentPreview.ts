@@ -3,8 +3,7 @@ import MarkdownIt from 'markdown-it'
 import Token from 'markdown-it/lib/token'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
-import { useRandomString } from '@flypeng/tool/browser'
-import { injectComponentImportScript, transformHighlightCode } from './utils'
+import { composeComponentName, injectComponentImportScript, transformHighlightCode } from './utils'
 
 const getPropsReg =
   /^<preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*)><\/preview>$/
@@ -45,10 +44,8 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   // 组件绝对路径
   const componentPath = resolve(dirname(env.path), componentProps.path || '.')
 
-  const _dirArr = componentProps.path.split('/')
-
   // 组件名
-  const componentName = `${_dirArr[_dirArr.length - 1].split('.')[0]}${useRandomString(6)}`
+  const componentName = composeComponentName(componentProps.path)
   // 后缀名
   const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
 
