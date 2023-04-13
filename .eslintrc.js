@@ -26,6 +26,7 @@ module.exports = {
     'import/extensions': 0,
     'import/no-unresolved': 0,
     'no-unused-vars': 1,
-    'no-underscore-dangle': 0
+    'no-underscore-dangle': 0,
+    'no-param-reassign': 0
   }
 }

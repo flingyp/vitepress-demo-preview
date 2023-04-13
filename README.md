@@ -42,12 +42,13 @@ configure markdown to add plugin
 
 ```ts
 import { defineConfig } from 'vitepress'
-import { containerPreview } from 'vitepress-demo-preview-plugin'
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
 
 export default defineConfig({
   markdown: {
     config(md) {
       md.use(containerPreview)
+      md.use(componentPreview)
     }
   }v
 })
@@ -74,4 +75,4 @@ demo-preview=./xxx/xx.vue
 - [ ] Integration demo component of other UI frameworks
   - [x] Ant Design Container
   - [x] ElementPlus Container
-  - [x] Naive UI Container
+  - [ ] Naive UI Container
