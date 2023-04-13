@@ -57,9 +57,9 @@
     <section :class="[ns.bem('name_handle')]">
       <div :class="[ns.bem('component', 'name')]">{{ title }}</div>
       <div :class="[ns.bem('description', 'btns')]">
+        <CodeCopy @click="clickCodeCopy" />
         <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
         <CodeOpen v-else @click="setCodeFold(false)" />
-        <CodeCopy @click="clickCodeCopy" />
       </div>
     </section>
 

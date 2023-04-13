@@ -38,7 +38,7 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
   justify-content: space-between;
 
   & > .#{$defaultPrefix}-component__name {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   & > .#{$defaultPrefix}-description__btns {
