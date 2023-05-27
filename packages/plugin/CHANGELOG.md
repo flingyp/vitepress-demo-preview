@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.11
+
+### Patch Changes
+
+- match preview component with closed tag
+
 ## 1.1.10
 
 ### Patch Changes
