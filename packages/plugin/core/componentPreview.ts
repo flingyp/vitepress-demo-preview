@@ -5,8 +5,11 @@ import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import { composeComponentName, injectComponentImportScript, transformHighlightCode } from './utils'
 
-const getPropsReg =
+const getPropsReg1 =
   /^<preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*)><\/preview>$/
+
+const getPropsReg2 =
+  /^<preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*) \/>$/
 
 export interface DefaultProps {
   path: string
@@ -28,7 +31,7 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
     description: '描述内容'
   }
   // 获取Props相关参数
-  const tokenContentArr = token.content.match(getPropsReg)!
+  const tokenContentArr = token.content.match(getPropsReg1) || token.content.match(getPropsReg2) || []
   tokenContentArr.shift()
   for (let i = 0; i < tokenContentArr.length; i += 2) {
     const item = tokenContentArr[i]

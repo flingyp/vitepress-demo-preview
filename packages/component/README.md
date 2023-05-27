@@ -58,6 +58,18 @@ export default defineConfig({
 
 ```md
 <preview path="./xxx/xx.vue" title="title" description="component description content"></preview>
+
+<path="./xxx/xx.vue" title="title" description="component description content" />
+```
+
+Tip: Currently, labels are only supported on a single line. The following cases cannot be parsed and matched.
+
+```md
+<preview
+  path="./xxx/xx.vue"
+  title="title"
+  description="component description content"
+/>
 ```
 
 ### Preview by Container Form
