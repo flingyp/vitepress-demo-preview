@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.10
+
+### Patch Changes
+
+- support preview with closed tag
+
 ## 1.1.9
 
 ### Patch Changes
