@@ -3,7 +3,12 @@ import MarkdownIt from 'markdown-it'
 import Token from 'markdown-it/lib/token'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
-import { composeComponentName, injectComponentImportScript, transformHighlightCode } from './utils'
+import {
+  composeComponentName,
+  injectComponentImportScript,
+  isCheckingRelativePath,
+  transformHighlightCode
+} from './utils'
 
 const getPropsReg1 =
   /^<preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*)><\/preview>$/
@@ -36,7 +41,7 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   for (let i = 0; i < tokenContentArr.length; i += 2) {
     const item = tokenContentArr[i]
     if (item === 'path') {
-      componentProps.path = tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim()
+      componentProps.path = isCheckingRelativePath(tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim())
     } else if (item === 'title') {
       componentProps.title = tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim()
     } else if (item === 'description') {

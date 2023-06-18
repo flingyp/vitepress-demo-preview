@@ -110,3 +110,15 @@ export const composeComponentName = (path: string) => {
   }
   return componentList.join('-').split('.')[0]
 }
+
+/**
+ * 检查组件相对路径
+ * @param path
+ * @returns
+ */
+export const isCheckingRelativePath = (path: string) => {
+  const relativePath = path
+  if (relativePath.startsWith('./') || relativePath.startsWith('../') || relativePath.startsWith('/'))
+    return relativePath
+  return `./${relativePath}`
+}

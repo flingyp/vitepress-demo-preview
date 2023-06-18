@@ -10,6 +10,7 @@ import {
   composeComponentName,
   injectComponentImportScript,
   isCheckContainerPreview,
+  isCheckingRelativePath,
   transformHighlightCode
 } from './utils'
 
@@ -47,7 +48,7 @@ export const parseContainerTag = (md: MarkdownIt) => {
   ) => {
     const token = tokens[idx]
     // 组件的相对路径
-    const componentRelativePath = tokens[idx + 2].content.split('=')[1]
+    const componentRelativePath = isCheckingRelativePath(tokens[idx + 2].content.split('=')[1])
 
     // 组件绝对路径
     const componentPath = resolve(dirname(env.path), componentRelativePath || '.')
@@ -101,7 +102,7 @@ export const parseContainer = (md: MarkdownIt) => {
   md.renderer.rules.text = (tokens: Token[], idx: number, options: MarkdownIt.Options, env: any, self: Renderer) => {
     const token = tokens[idx]
     if (token.type === 'text' && token.content.match(isCheckContainerPreview)) {
-      const componentRelativePath = token.content.match(isCheckContainerPreview)![1]
+      const componentRelativePath = isCheckingRelativePath(token.content.match(isCheckContainerPreview)![1])
       const componentName = composeComponentName(componentRelativePath)
       injectComponentImportScript(env, componentRelativePath, componentName)
       return `<${componentName}></${componentName}>`
