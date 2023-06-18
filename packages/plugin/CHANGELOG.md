@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.1.12
+
+### Patch Changes
+
+- component paths are resolved from the current directory by default
+
 ## 1.1.11
 
 ### Patch Changes
