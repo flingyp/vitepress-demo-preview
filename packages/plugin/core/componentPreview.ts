@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import MarkdownIt from 'markdown-it'
 import Token from 'markdown-it/lib/token'
-import { resolve, dirname } from 'path'
+import { resolve, dirname, relative } from 'path'
 import { readFileSync } from 'fs'
 import {
   composeComponentName,
@@ -52,6 +52,9 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   // 组件绝对路径
   const componentPath = resolve(dirname(env.path), componentProps.path || '.')
 
+  // 组件相对路径（基于当前运行路径）
+  const relativePath = relative(process.cwd(), componentPath)
+
   // 组件名
   const componentName = composeComponentName(componentProps.path)
   // 后缀名
@@ -70,7 +73,7 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   const code = encodeURI(componentSourceCode)
   const showCode = encodeURIComponent(compileHighlightCode)
 
-  const sourceCode = `<demo-preview title="${componentProps.title}" description="${componentProps.description}" code="${code}" showCode="${showCode}">
+  const sourceCode = `<demo-preview path="${componentPath}" relativePath="${relativePath}" title="${componentProps.title}" description="${componentProps.description}" code="${code}" showCode="${showCode}">
     <${componentName}></${componentName}>
   </demo-preview>`
 
