@@ -73,7 +73,7 @@ export const parseContainerTag = (md: MarkdownIt) => {
       description = getParamArr[2]
     }
     if (token.nesting === 1)
-      return `<demo-preview title='${title}' description='${description}' code="${code}" showCode="${showCode}">\n`
+      return `<demo-preview title='${title}' description='${description}' code="${code}" showCode="${showCode}" suffixName="${suffixName}" absolutePath="${componentPath}" relativePath="${componentRelativePath}">\n`
 
     return defaultContainerPreviewOpenRender(tokens, idx, options, env, self)
   }

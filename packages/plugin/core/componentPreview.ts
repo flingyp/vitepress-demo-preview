@@ -70,7 +70,7 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   const code = encodeURI(componentSourceCode)
   const showCode = encodeURIComponent(compileHighlightCode)
 
-  const sourceCode = `<demo-preview title="${componentProps.title}" description="${componentProps.description}" code="${code}" showCode="${showCode}">
+  const sourceCode = `<demo-preview title="${componentProps.title}" description="${componentProps.description}" code="${code}" showCode="${showCode}" suffixName="${suffixName}" absolutePath="${componentPath}" relativePath="${componentProps.path}">
     <${componentName}></${componentName}>
   </demo-preview>`
 
