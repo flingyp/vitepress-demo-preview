@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.2.0
+
+### Minor Changes
+
+- plugin provide suffixName、absolutePath and relativePath attributes
+
 ## 1.1.12
 
 ### Patch Changes
