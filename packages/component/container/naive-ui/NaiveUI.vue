@@ -1,11 +1,13 @@
 <script lang="ts" setup>
   import { ref, onMounted, watch, computed } from 'vue'
+  import CodeSandBox from '../../common/CodeSandBox.vue'
   import CodeOpen from '../../icons/code-open.vue'
   import CodeClose from '../../icons/code-close.vue'
   import CodeCopy from '../../icons/code-copy.vue'
   import { useNameSpace } from '../../hooks/use-namespaces'
   import { useCodeFold } from '../../hooks/use-codefold'
   import { useCodeCopy } from '../../hooks/use-codecopy'
+  import { useCodeSandBox } from '../../hooks/use-codesandbox'
   import { MessageNoticeService } from '../../messages/index'
 
   interface DemoBlockProps {
@@ -20,13 +22,14 @@
     description: '描述内容'
   })
 
-  const ns = useNameSpace()
-  const { isCodeFold, setCodeFold } = useCodeFold()
-  const { copyContent, clickCopy } = useCodeCopy()
-
   const sourceCode = ref(decodeURIComponent(props.code))
   const showSourceCode = ref(decodeURIComponent(props.showCode))
   const sourceCodeArea = ref<any>(null)
+
+  const ns = useNameSpace()
+  const { isCodeFold, setCodeFold } = useCodeFold()
+  const { clickCopy } = useCodeCopy()
+  const { parameters } = useCodeSandBox(sourceCode.value)
 
   const clickCodeCopy = () => {
     clickCopy(sourceCode.value)
@@ -57,6 +60,7 @@
     <section :class="[ns.bem('name_handle')]">
       <div :class="[ns.bem('component', 'name')]">{{ title }}</div>
       <div :class="[ns.bem('description', 'btns')]">
+        <CodeSandBox :parameters="parameters" />
         <CodeCopy @click="clickCodeCopy" />
         <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
         <CodeOpen v-else @click="setCodeFold(false)" />

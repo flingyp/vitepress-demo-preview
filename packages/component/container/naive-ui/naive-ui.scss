@@ -52,6 +52,11 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
       color: var(--component-preview-text-1);
       cursor: pointer;
     }
+
+    form {
+      margin-right: 8px;
+    }
+
     svg:not(:last-of-type) {
       margin-right: 8px;
     }

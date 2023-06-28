@@ -89,6 +89,10 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
       cursor: pointer;
     }
 
+    form {
+      margin-right: 8px;
+    }
+
     svg:not(:last-of-type) {
       margin-right: 8px;
     }
