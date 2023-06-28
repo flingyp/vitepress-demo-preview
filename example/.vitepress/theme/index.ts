@@ -6,6 +6,6 @@ import '@vitepress-demo-preview/component/dist/style.css'
 export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: App }) {
-    app.component('demo-preview', AntDesignContainer)
+    app.component('demo-preview', NaiveUIContainer)
   }
 }

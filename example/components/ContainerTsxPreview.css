@@ -1,10 +1,10 @@
-.container-preview > p {
+.preview > p {
   margin: 0;
   padding: 0;
   margin-bottom: 10px;
   font-size: 20px;
 }
 
-.container-preview .add-container span {
+.add-container span {
   margin-right: 8px;
 }
