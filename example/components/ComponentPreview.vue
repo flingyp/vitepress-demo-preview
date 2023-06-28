@@ -1,15 +1,16 @@
 <template>
   <div class="component-preview">
     <p>Component Form</p>
-    <div>
+    <div class="add-container">
       <span>新增：{{ num }}</span>
-      <button @click="addNum">按钮</button>
+      <NButton type="primary" size="small" @click="addNum">按钮</NButton>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { NButton } from 'naive-ui'
 
   const num = ref(0)
   const addNum = () => {
@@ -25,13 +26,7 @@
     font-size: 20px;
   }
 
-  button {
-    display: inline-block;
-    padding: 0px 16px;
-    border-radius: 4px;
-    background: var(--vp-button-brand-bg);
-    color: var(--vp-button-brand-text);
-    border: 1px solid var(--vp-button-brand-border);
-    margin-left: 40px;
+  .component-preview .add-container span {
+    margin-right: 8px;
   }
 </style>

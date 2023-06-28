@@ -1,4 +1,5 @@
 import { defineComponent, ref } from 'vue'
+import { NButton } from 'naive-ui'
 import './ContainerTsxPreview.css'
 
 export default defineComponent({
@@ -11,9 +12,11 @@ export default defineComponent({
       <>
         <div class="container-preview">
           <p>Container Form</p>
-          <div>
+          <div class="add-container">
             <span>新增：{num.value}</span>
-            <button onClick={addNum}>按钮</button>
+            <NButton type="primary" size="small" onClick={addNum}>
+              按钮
+            </NButton>
           </div>
         </div>
       </>
