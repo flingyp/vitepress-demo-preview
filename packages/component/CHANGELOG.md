@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.3.1
+
+### Patch Changes
+
+- fix: end value has mixed support, using flex-end instead
+
 ## 2.3.0
 
 ### Minor Changes
