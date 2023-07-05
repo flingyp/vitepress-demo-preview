@@ -59,11 +59,14 @@
       <slot> </slot>
     </section>
     <section :class="[ns.bem('description')]">
-      <div :class="[ns.bem('description', 'title')]">
+      <div v-if="props.title" :class="[ns.bem('description', 'title')]">
         {{ title }}
       </div>
-      <div :class="[ns.bem('description', 'content')]" v-html="description"></div>
-      <div :class="[ns.bem('description', 'split-line')]"></div>
+      <div v-if="props.description" :class="[ns.bem('description', 'content')]" v-html="description"></div>
+      <div
+        v-if="props.description || (!props.title && !props.description)"
+        :class="[ns.bem('description', 'split-line')]"
+      ></div>
       <div :class="[ns.bem('description', 'handle-btn')]">
         <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
         <CodeOpen v-else @click="setCodeFold(false)" />

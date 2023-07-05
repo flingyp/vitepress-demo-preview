@@ -22,7 +22,7 @@
 
   const ns = useNameSpace()
   const { isCodeFold, setCodeFold } = useCodeFold()
-  const { copyContent, clickCopy } = useCodeCopy()
+  const { clickCopy } = useCodeCopy()
 
   const sourceCode = ref(decodeURIComponent(props.code))
   const showSourceCode = ref(decodeURIComponent(props.showCode))

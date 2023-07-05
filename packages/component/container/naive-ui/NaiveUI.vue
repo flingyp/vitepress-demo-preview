@@ -22,7 +22,7 @@
 
   const ns = useNameSpace()
   const { isCodeFold, setCodeFold } = useCodeFold()
-  const { copyContent, clickCopy } = useCodeCopy()
+  const { clickCopy } = useCodeCopy()
 
   const sourceCode = ref(decodeURIComponent(props.code))
   const showSourceCode = ref(decodeURIComponent(props.showCode))
@@ -55,7 +55,7 @@
 <template>
   <div :class="[ns.e('naive-ui__container')]">
     <section :class="[ns.bem('name_handle')]">
-      <div :class="[ns.bem('component', 'name')]">{{ title }}</div>
+      <div v-if="props.title" :class="[ns.bem('component', 'name')]">{{ title }}</div>
       <div :class="[ns.bem('description', 'btns')]">
         <CodeCopy @click="clickCodeCopy" />
         <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
@@ -63,7 +63,7 @@
       </div>
     </section>
 
-    <section :class="[ns.bem('description')]">
+    <section v-if="props.description" :class="[ns.bem('description')]">
       <span>
         {{ description }}
       </span>

@@ -10,11 +10,9 @@ import {
   transformHighlightCode
 } from './utils'
 
-const getPropsReg1 =
-  /^<preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*)><\/preview>$/
-
-const getPropsReg2 =
-  /^<preview (path|title|description)=(.*) (path|title|description)=(.*) (path|title|description)=(.*) \/>$/
+const titleRegex = /title="(.*?)"/
+const pathRegex = /path="(.*?)"/
+const descriptionRegex = /description="(.*?)"/
 
 export interface DefaultProps {
   path: string
@@ -35,19 +33,18 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
     title: '默认标题',
     description: '描述内容'
   }
+
   // 获取Props相关参数
-  const tokenContentArr = token.content.match(getPropsReg1) || token.content.match(getPropsReg2) || []
-  tokenContentArr.shift()
-  for (let i = 0; i < tokenContentArr.length; i += 2) {
-    const item = tokenContentArr[i]
-    if (item === 'path') {
-      componentProps.path = isCheckingRelativePath(tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim())
-    } else if (item === 'title') {
-      componentProps.title = tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim()
-    } else if (item === 'description') {
-      componentProps.description = tokenContentArr[i + 1].replaceAll(/"|"/gi, '').trim()
-    }
-  }
+  const titleValue = token.content.match(titleRegex)
+  const pathRegexValue = token.content.match(pathRegex)
+  const descriptionRegexValue = token.content.match(descriptionRegex)
+
+  if (!pathRegexValue) throw new Error('@vitepress-demo-preview/plugin: path is a required parameter')
+  // eslint-disable-next-line prefer-destructuring
+  componentProps.path = isCheckingRelativePath(pathRegexValue[1])
+
+  componentProps.title = titleValue ? titleValue[1] : ''
+  componentProps.description = descriptionRegexValue ? descriptionRegexValue[1] : ''
 
   // 组件绝对路径
   const componentPath = resolve(dirname(env.path), componentProps.path || '.')

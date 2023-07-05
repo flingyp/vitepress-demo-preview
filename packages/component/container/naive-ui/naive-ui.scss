@@ -35,7 +35,6 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
   padding: 20px 20px 20px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   & > .#{$defaultPrefix}-component__name {
     font-size: 20px;
@@ -44,6 +43,7 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
   & > .#{$defaultPrefix}-description__btns {
     display: flex;
     align-items: center;
+    margin-left: auto;
 
     svg {
       width: 16px;
