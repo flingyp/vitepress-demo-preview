@@ -57,12 +57,30 @@ export default defineConfig({
 ### Preview of Component Form
 
 ```md
+<!-- Tip: Support for closed tags -->
+
+<preview path="./xxx/xx.vue"></preview>
+
+<preview path="./xxx/xx.vue" title="title"></preview>
+
 <preview path="./xxx/xx.vue" title="title" description="component description content"></preview>
 ```
 
 ### Preview by Container Form
 
 ```md
+:::preview
+
+demo-preview=./xxx/xx.vue
+
+:::
+
+:::preview title
+
+demo-preview=./xxx/xx.vue
+
+:::
+
 :::preview title || component description content
 
 demo-preview=./xxx/xx.vue
