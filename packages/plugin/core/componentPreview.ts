@@ -42,7 +42,6 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   if (!pathRegexValue) throw new Error('@vitepress-demo-preview/plugin: path is a required parameter')
   // eslint-disable-next-line prefer-destructuring
   componentProps.path = isCheckingRelativePath(pathRegexValue[1])
-
   componentProps.title = titleValue ? titleValue[1] : ''
   componentProps.description = descriptionRegexValue ? descriptionRegexValue[1] : ''
 

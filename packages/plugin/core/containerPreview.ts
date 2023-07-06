@@ -14,8 +14,8 @@ import {
   transformHighlightCode
 } from './utils'
 
-const validateContainerRE = /^preview\s+(.*)$/
-const parseContainerParamRE = /^preview\s(.+)\s\|\|\s(.*)$/
+const validateContainerRE = /^preview.*$/
+const parseContainerParamRE = /^preview\s?(.*?)(?:\s\|\|\s(.*?))?$/
 
 /**
  * 自定义容器的注册
@@ -66,15 +66,11 @@ export const parseContainerTag = (md: MarkdownIt) => {
     const showCode = encodeURIComponent(compileHighlightCode)
 
     const getParamArr = tokens[idx].info.trim().match(parseContainerParamRE)
-    let title = '默认标题'
-    let description = '默认描述'
-    if (getParamArr) {
-      title = getParamArr[1]
-      description = getParamArr[2]
-    }
+    const title = getParamArr && getParamArr[1] ? getParamArr[1] : ''
+    const description = getParamArr && getParamArr[2] ? getParamArr[2] : ''
+
     if (token.nesting === 1)
       return `<demo-preview title='${title}' description='${description}' code="${code}" showCode="${showCode}" suffixName="${suffixName}" absolutePath="${componentPath}" relativePath="${componentRelativePath}">\n`
-
     return defaultContainerPreviewOpenRender(tokens, idx, options, env, self)
   }
   // 闭合标签 :::
