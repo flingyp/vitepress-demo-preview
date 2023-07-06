@@ -1,6 +1,6 @@
 {
   "name": "@vitepress-demo-preview/plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "main": "./dist/index.cjs",

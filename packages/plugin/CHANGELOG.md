@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.2.1
+
+### Patch Changes
+
+- support title and description optional
+
 ## 1.2.0
 
 ### Minor Changes
