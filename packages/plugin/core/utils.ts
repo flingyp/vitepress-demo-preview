@@ -97,17 +97,19 @@ export const transformHighlightCode = (mdInstance: MarkdownIt, sourceCode: strin
  */
 export const composeComponentName = (path: string) => {
   let isFlag = true
-  const componentList: string[] = []
+  let componentList: string[] = []
   while (isFlag) {
     const lastIndex = path.lastIndexOf('/')
     if (lastIndex === -1) {
       isFlag = false
     } else {
       const name = path.substring(lastIndex + 1)
+
       componentList.unshift(name)
-      path = path.substring(0, lastIndex - 1)
+      path = path.substring(0, lastIndex)
     }
   }
+  componentList = componentList.filter(item => item !== '' && item !== '.' && item !== '..')
   return componentList.join('-').split('.')[0]
 }
 
