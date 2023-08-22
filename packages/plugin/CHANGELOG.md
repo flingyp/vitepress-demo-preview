@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.2.2
+
+### Patch Changes
+
+- handle path parse error
+
 ## 1.2.1
 
 ### Patch Changes
