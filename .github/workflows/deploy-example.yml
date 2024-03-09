@@ -21,7 +21,7 @@ jobs:
       - name: Setup node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18.8.2'
       # 安装Pnpm
       - name: Install Pnpm
         run: npm install pnpm -g
