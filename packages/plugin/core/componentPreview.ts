@@ -10,9 +10,9 @@ import {
   transformHighlightCode
 } from './utils'
 
-const titleRegex = /title="(.*?)"/
-const pathRegex = /path="(.*?)"/
-const descriptionRegex = /description="(.*?)"/
+const titleRegex = /title=['"](.*?)['"]/
+const pathRegex = /path=['"](.*?)['"]/
+const descriptionRegex = /description=['"](.*?)['"]/
 
 export interface DefaultProps {
   path: string
