@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.2.3
+
+### Patch Changes
+
+- fix: Component Form support single quotation mark
+
 ## 1.2.2
 
 ### Patch Changes

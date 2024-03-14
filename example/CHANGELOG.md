@@ -1,5 +1,12 @@
 # @vitepress-demo-preview/example
 
+## 1.0.23
+
+### Patch Changes
+
+- Updated dependencies
+  - @vitepress-demo-preview/plugin@1.2.3
+
 ## 1.0.22
 
 ### Patch Changes
