@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.3.0
+
+### Minor Changes
+
+- support client render
+
 ## 1.2.3
 
 ### Patch Changes

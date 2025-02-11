@@ -27,6 +27,7 @@ pnpm add @vitepress-demo-preview/component @vitepress-demo-preview/plugin
 configure in your vitepress/theme entry file
 
 ```ts
+import DefaultTheme from 'vitepress/theme'
 import { AntDesignContainer, ElementPlusContainer, NaiveUIContainer } from '@vitepress-demo-preview/component'
 import '@vitepress-demo-preview/component/dist/style.css'
 
@@ -49,6 +50,13 @@ export default defineConfig({
     config(md) {
       md.use(containerPreview)
       md.use(componentPreview)
+      /**
+       * SSR Compatibility
+       * @link https://vitepress.dev/guide/ssr-compat
+       * If the components are not SSR-friendly, you can specify the clientOnly to disable SSR.
+       */
+      // md.use(containerPreview, { clientOnly: true })
+      // md.use(componentPreview, { clientOnly: true })
     }
   }
 })
