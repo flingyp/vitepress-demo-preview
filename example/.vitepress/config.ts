@@ -18,7 +18,7 @@ export default defineConfig({
     },
     lineNumbers: true,
     config(md) {
-      md.use(componentPreview)
+      md.use(componentPreview, { clientOnly: true })
       md.use(containerPreview)
     }
   }

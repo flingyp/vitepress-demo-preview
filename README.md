@@ -50,6 +50,13 @@ export default defineConfig({
     config(md) {
       md.use(containerPreview)
       md.use(componentPreview)
+      /**
+       * SSR Compatibility
+       * @link https://vitepress.dev/guide/ssr-compat
+       * If the components are not SSR-friendly, you can sepecify the clientOnly to disable SSR.
+       * /
+      // md.use(containerPreview, { clientOnly: true })
+      // md.use(componentPreview, { clientOnly: true })
     }
   }
 })

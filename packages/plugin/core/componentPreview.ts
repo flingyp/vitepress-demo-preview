@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign */
-import MarkdownIt from 'markdown-it'
-import Token from 'markdown-it/lib/token'
+import MarkdownIt, { Token } from 'markdown-it'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import {
   composeComponentName,
   injectComponentImportScript,
   isCheckingRelativePath,
-  transformHighlightCode
+  transformHighlightCode,
+  Options
 } from './utils'
 
 const titleRegex = /title=['"](.*?)['"]/
@@ -27,7 +27,7 @@ export interface DefaultProps {
  * @param env
  * @returns
  */
-export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
+export const transformPreview = (md: MarkdownIt, token: Token, env: any, options: Options) => {
   const componentProps: DefaultProps = {
     path: '',
     title: '默认标题',
@@ -54,7 +54,7 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any) => {
   const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
 
   // 注入组件导入语句
-  injectComponentImportScript(env, componentProps.path, componentName)
+  injectComponentImportScript(env, componentProps.path, componentName, options.clientOnly)
 
   // 组件源码
   const componentSourceCode = readFileSync(componentPath, {
