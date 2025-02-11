@@ -1,8 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable prefer-destructuring */
-import MarkdownIt from 'markdown-it'
-import Token from 'markdown-it/lib/token'
-import Renderer from 'markdown-it/lib/renderer'
+import MarkdownIt, { Token, Renderer } from 'markdown-it'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import markdownItContainer from 'markdown-it-container'
@@ -11,7 +9,8 @@ import {
   injectComponentImportScript,
   isCheckContainerPreview,
   isCheckingRelativePath,
-  transformHighlightCode
+  transformHighlightCode,
+  Options
 } from './utils'
 
 const validateContainerRE = /^preview.*$/
@@ -93,16 +92,16 @@ export const parseContainerTag = (md: MarkdownIt) => {
  * 解析自定义容器
  * @param md
  */
-export const parseContainer = (md: MarkdownIt) => {
+export const parseContainer = (md: MarkdownIt, options: Options) => {
   const defaultHtmlTextRender = md.renderer.rules.text!
-  md.renderer.rules.text = (tokens: Token[], idx: number, options: MarkdownIt.Options, env: any, self: Renderer) => {
+  md.renderer.rules.text = (tokens: Token[], idx: number, mdOptions: MarkdownIt.Options, env: any, self: Renderer) => {
     const token = tokens[idx]
     if (token.type === 'text' && token.content.match(isCheckContainerPreview)) {
       const componentRelativePath = isCheckingRelativePath(token.content.match(isCheckContainerPreview)![1])
       const componentName = composeComponentName(componentRelativePath)
-      injectComponentImportScript(env, componentRelativePath, componentName)
+      injectComponentImportScript(env, componentRelativePath, componentName, options.clientOnly)
       return `<${componentName}></${componentName}>`
     }
-    return defaultHtmlTextRender(tokens, idx, options, env, self)
+    return defaultHtmlTextRender(tokens, idx, mdOptions, env, self)
   }
 }
