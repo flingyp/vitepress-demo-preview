@@ -1,0 +1,1 @@
+import{d as u,p as o,G as e,a as n,F as r}from"./framework.XSHYH-dQ.js";const l=u({setup(){const a=o(0),t=()=>{a.value+=2};return()=>e(r,null,[e("div",{class:"container-preview"},[e("p",null,[n("Container Form")]),e("div",null,[e("span",null,[n("新增："),a.value]),e("button",{onClick:t},[n("按钮")])])])])}});export{l as default};
