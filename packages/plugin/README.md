@@ -84,6 +84,7 @@ If you need to use alias paths, you can configure the alias in the vitepress con
 
 ```ts
 import { defineConfig } from 'vitepress'
+import { resolve } from 'path'
 
 const alias = {
   '@': resolve(__dirname, '../../example')
