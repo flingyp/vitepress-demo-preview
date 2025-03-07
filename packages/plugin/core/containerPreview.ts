@@ -8,7 +8,8 @@ import {
   composeComponentName,
   injectComponentImportScript,
   isCheckContainerPreview,
-  isCheckingRelativePath,
+  isRelativePath,
+  findAliasPathToAbsolutePath,
   transformHighlightCode,
   Options
 } from './utils'
@@ -35,7 +36,8 @@ export const containerDirectiveMount = (md: MarkdownIt) => {
  * 解析自定义日期的Tag
  * @param md
  */
-export const parseContainerTag = (md: MarkdownIt) => {
+export const parseContainerTag = (md: MarkdownIt, options: Options) => {
+  const { alias } = options
   // 开始标签 :::preview
   const defaultContainerPreviewOpenRender = md.renderer.rules.container_preview_open!
   md.renderer.rules.container_preview_open = (
@@ -47,10 +49,20 @@ export const parseContainerTag = (md: MarkdownIt) => {
   ) => {
     const token = tokens[idx]
     // 组件的相对路径
-    const componentRelativePath = isCheckingRelativePath(tokens[idx + 2].content.split('=')[1])
+
+    // 组件路径（相对路径｜别名路径）
+    let componentRelativePath = tokens[idx + 2].content.split('=')[1]
 
     // 组件绝对路径
-    const componentPath = resolve(dirname(env.path), componentRelativePath || '.')
+    let componentPath = ''
+    if (isRelativePath(componentRelativePath)) {
+      componentPath = resolve(dirname(env.path), componentRelativePath || '.')
+    } else if (alias) {
+      // 配置了别名配置
+      componentPath = findAliasPathToAbsolutePath(alias, componentRelativePath)
+    } else {
+      throw new Error('@vitepress-demo-preview/plugin: path cannot be resolved')
+    }
 
     // 后缀名
     const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
@@ -72,6 +84,7 @@ export const parseContainerTag = (md: MarkdownIt) => {
       return `<demo-preview title='${title}' description='${description}' code="${code}" showCode="${showCode}" suffixName="${suffixName}" absolutePath="${componentPath}" relativePath="${componentRelativePath}">\n`
     return defaultContainerPreviewOpenRender(tokens, idx, options, env, self)
   }
+
   // 闭合标签 :::
   const defaultContainerPreviewCloseRender = md.renderer.rules.container_preview_close!
   md.renderer.rules.container_preview_close = (
@@ -97,9 +110,9 @@ export const parseContainer = (md: MarkdownIt, options: Options) => {
   md.renderer.rules.text = (tokens: Token[], idx: number, mdOptions: MarkdownIt.Options, env: any, self: Renderer) => {
     const token = tokens[idx]
     if (token.type === 'text' && token.content.match(isCheckContainerPreview)) {
-      const componentRelativePath = isCheckingRelativePath(token.content.match(isCheckContainerPreview)![1])
-      const componentName = composeComponentName(componentRelativePath)
-      injectComponentImportScript(env, componentRelativePath, componentName, options.clientOnly)
+      const componentPath = token.content.match(isCheckContainerPreview)![1]
+      const componentName = composeComponentName(componentPath)
+      injectComponentImportScript(env, componentPath, componentName, options)
       return `<${componentName}></${componentName}>`
     }
     return defaultHtmlTextRender(tokens, idx, mdOptions, env, self)

@@ -50,13 +50,56 @@ export default defineConfig({
     config(md) {
       md.use(containerPreview)
       md.use(componentPreview)
+    }
+  }
+})
+```
+
+### SSR Compatibility
+
+If the components are not SSR-friendly, you can specify the clientOnly to disable SSR.
+
+```ts
+import { defineConfig } from 'vitepress'
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
+
+export default defineConfig({
+  markdown: {
+    config(md) {
       /**
        * SSR Compatibility
        * @link https://vitepress.dev/guide/ssr-compat
        * If the components are not SSR-friendly, you can specify the clientOnly to disable SSR.
        */
-      // md.use(containerPreview, { clientOnly: true })
-      // md.use(componentPreview, { clientOnly: true })
+      md.use(containerPreview, { clientOnly: true })
+      md.use(componentPreview, { clientOnly: true })
+    }
+  }
+})
+```
+
+### Alias Configuration
+
+If you need to use alias paths, you can configure the alias in the vitepress configuration file.
+
+```ts
+import { defineConfig } from 'vitepress'
+
+const alias = {
+  '@': resolve(__dirname, '../../example')
+}
+
+export default defineConfig({
+  // ...
+  markdown: {
+    config(md) {
+      md.use(componentPreview, { alias })
+      md.use(containerPreview, { alias })
+    }
+  },
+  vite: {
+    resolve: {
+      alias
     }
   }
 })

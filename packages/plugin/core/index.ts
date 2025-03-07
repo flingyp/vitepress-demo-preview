@@ -21,7 +21,8 @@ export const componentPreview = (md: MarkdownIt, options?: Partial<Options>) => 
 }
 
 export const containerPreview = (md: MarkdownIt, options?: Partial<Options>) => {
+  const normalizeOptionsVal = normalizeOptions(options)
   containerDirectiveMount(md)
-  parseContainerTag(md)
-  parseContainer(md, normalizeOptions(options))
+  parseContainerTag(md, normalizeOptionsVal)
+  parseContainer(md, normalizeOptionsVal)
 }
