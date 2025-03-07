@@ -13,11 +13,13 @@ const scriptSetupCommonRE = /<\s*script\s+(setup|lang='ts'|lang="ts")?\s*(setup|
 
 export type Options = {
   clientOnly: boolean
+  alias: Record<string, string> | null
 }
 
 export function normalizeOptions(options: Partial<Options> = {}): Options {
   return {
     clientOnly: false,
+    alias: null,
     ...options
   }
 }
@@ -39,7 +41,9 @@ export const handleComponentName = (componentName: string) => {
  * @param path
  * @param componentName
  */
-export const injectComponentImportScript = (env: any, path: string, componentName: string, clientOnly: boolean) => {
+export const injectComponentImportScript = (env: any, path: string, componentName: string, options: Options) => {
+  const { clientOnly } = options
+
   // https://github.com/vuejs/vitepress/issues/1258  __Path、__Relativepath、__data.Hoistedtags 被删除解决方案
   // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/src/types.ts
   // https://github.com/mdit-vue/mdit-vue/blob/main/packages/plugin-sfc/tests/__snapshots__/sfc-plugin.spec.ts.snap
@@ -76,7 +80,7 @@ export const injectComponentImportScript = (env: any, path: string, componentNam
     // MD文件注入了 <script setup> 或 <script setup lang='ts'> 脚本
     let { content } = scriptsCode[0]
     // MD文件中存在已经引入了组件
-    if (content.includes(path) && content.includes(_componentName)) return
+    if (content.includes(path) || content.includes(_componentName)) return
 
     // MD文件中不存在组件 添加组件 import ${_componentName} from '${path}'\n
 
@@ -147,4 +151,27 @@ export const isCheckingRelativePath = (path: string) => {
   if (relativePath.startsWith('./') || relativePath.startsWith('../') || relativePath.startsWith('/'))
     return relativePath
   return `./${relativePath}`
+}
+
+/**
+ * 检查路径是否为相对路径
+ * @param path
+ * @returns
+ */
+export const isRelativePath = (path: string) => {
+  if (path.startsWith('./') || path.startsWith('../') || path.startsWith('/')) return true
+  return false
+}
+
+/**
+ * 查找别名路径转换绝对路径
+ * @param alias
+ * @param path
+ * @returns
+ */
+export const findAliasPathToAbsolutePath = (alias: Record<string, string>, path: string) => {
+  const aliasKeyList = Object.keys(alias)
+  const aliasKey = aliasKeyList.find(key => path.indexOf(key) !== -1)
+  if (aliasKey) return path.replace(aliasKey, alias[aliasKey])
+  return path
 }

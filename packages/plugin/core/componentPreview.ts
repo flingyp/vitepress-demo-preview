@@ -5,7 +5,8 @@ import { readFileSync } from 'fs'
 import {
   composeComponentName,
   injectComponentImportScript,
-  isCheckingRelativePath,
+  findAliasPathToAbsolutePath,
+  isRelativePath,
   transformHighlightCode,
   Options
 } from './utils'
@@ -28,6 +29,8 @@ export interface DefaultProps {
  * @returns
  */
 export const transformPreview = (md: MarkdownIt, token: Token, env: any, options: Options) => {
+  const { alias } = options
+
   const componentProps: DefaultProps = {
     path: '',
     title: '默认标题',
@@ -41,12 +44,24 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any, options
 
   if (!pathRegexValue) throw new Error('@vitepress-demo-preview/plugin: path is a required parameter')
   // eslint-disable-next-line prefer-destructuring
-  componentProps.path = isCheckingRelativePath(pathRegexValue[1])
+
+  // 组件路径（相对路径｜别名路径）
+  componentProps.path = pathRegexValue[1]
   componentProps.title = titleValue ? titleValue[1] : ''
   componentProps.description = descriptionRegexValue ? descriptionRegexValue[1] : ''
 
   // 组件绝对路径
-  const componentPath = resolve(dirname(env.path), componentProps.path || '.')
+  let componentPath = ''
+
+  if (isRelativePath(pathRegexValue[1])) {
+    // 相对路径
+    componentPath = resolve(dirname(env.path), componentProps.path || '.')
+  } else if (alias) {
+    // 配置了别名配置
+    componentPath = findAliasPathToAbsolutePath(alias, pathRegexValue[1])
+  } else {
+    throw new Error('@vitepress-demo-preview/plugin: path cannot be resolved')
+  }
 
   // 组件名
   const componentName = composeComponentName(componentProps.path)
@@ -54,7 +69,7 @@ export const transformPreview = (md: MarkdownIt, token: Token, env: any, options
   const suffixName = componentPath.substring(componentPath.lastIndexOf('.') + 1)
 
   // 注入组件导入语句
-  injectComponentImportScript(env, componentProps.path, componentName, options.clientOnly)
+  injectComponentImportScript(env, componentProps.path, componentName, options)
 
   // 组件源码
   const componentSourceCode = readFileSync(componentPath, {

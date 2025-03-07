@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 1.4.0
+
+### Minor Changes
+
+- support alias config
+
 ## 1.3.0
 
 ### Minor Changes
