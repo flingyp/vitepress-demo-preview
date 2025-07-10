@@ -1,12 +1,12 @@
-import { defineComponent, ref } from 'vue'
-import './ContainerTsxPreview.css'
+import { defineComponent, ref } from 'vue';
+import './ContainerTsxPreview.css';
 
 export default defineComponent({
   setup() {
-    const num = ref(0)
+    const num = ref(0);
     const addNum = () => {
-      num.value += 2
-    }
+      num.value += 2;
+    };
     return () => (
       <>
         <div class="container-preview">
@@ -19,6 +19,6 @@ export default defineComponent({
           </div>
         </div>
       </>
-    )
-  }
-})
+    );
+  },
+});

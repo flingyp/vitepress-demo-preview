@@ -1,12 +1,12 @@
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export const useCodeFold = () => {
-  const isCodeFold = ref(true)
+  const isCodeFold = ref(true);
   const setCodeFold = (value: boolean) => {
-    isCodeFold.value = value
-  }
+    isCodeFold.value = value;
+  };
   return {
     isCodeFold,
-    setCodeFold
-  }
-}
+    setCodeFold,
+  };
+};

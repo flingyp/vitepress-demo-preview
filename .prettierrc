@@ -1,11 +1,7 @@
 {
-  "printWidth": 120,
-  "useTabs": false,
-  "tabWidth": 2,
-  "semi": false,
-  "singleQuote": true,
-  "trailingComma": "none",
-  "arrowParens": "avoid",
-  "bracketSpacing": true,
-  "vueIndentScriptAndStyle": true
+    "semi": true,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "vueIndentScriptAndStyle": false,
+    "plugins": ["@prettier/plugin-oxc"]
 }

@@ -4,10 +4,7 @@
   "commit": false,
   "fixed": [],
   "linked": [
-    [
-      "@vitepress-demo-preview/component",
-      "@vitepress-demo-preview/plugin"
-    ]
+    ["@vitepress-demo-preview/component", "@vitepress-demo-preview/plugin"]
   ],
   "access": "public",
   "baseBranch": "origin/main",
