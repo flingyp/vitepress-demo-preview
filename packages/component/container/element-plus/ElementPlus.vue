@@ -6,7 +6,8 @@
   import { useNameSpace } from '../../hooks/use-namespaces'
   import { useCodeFold } from '../../hooks/use-codefold'
   import { useCodeCopy } from '../../hooks/use-codecopy'
-  import { MessageNoticeService } from '../../messages/index'
+  import { Toaster } from 'vue-sonner'
+  import 'vue-sonner/style.css'
 
   interface DemoBlockProps {
     code: string
@@ -30,7 +31,6 @@
 
   const clickCodeCopy = () => {
     clickCopy(sourceCode.value)
-    MessageNoticeService.open()
   }
 
   const sourceCodeContainerHeight = computed(() => {
@@ -70,6 +70,8 @@
       <div v-html="showSourceCode" class="language-vue"></div>
     </section>
   </div>
+
+  <Toaster :expand="true" closeButton richColors />
 </template>
 
 <style src="./element-plus.scss"></style>

@@ -13,7 +13,9 @@ export default defineComponent({
           <p>Container Form</p>
           <div>
             <span>新增：{num.value}</span>
-            <button onClick={addNum}>按钮</button>
+            <button onClick={addNum} class="btn">
+              按钮
+            </button>
           </div>
         </div>
       </>

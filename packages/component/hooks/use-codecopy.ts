@@ -1,10 +1,14 @@
 import { ref } from 'vue'
+import { toast } from 'vue-sonner'
 
 export const useCodeCopy = () => {
   const copyContent = ref('')
   const clickCopy = async (value: string) => {
     await navigator.clipboard.writeText(value)
-    // TODO: 通知开发者复制成功
+    toast.success('复制成功', {
+      position: 'top-center',
+      closeButton: true
+    })
   }
   return {
     copyContent,
