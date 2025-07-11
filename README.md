@@ -3,7 +3,7 @@
 	<h6 align="center">Demo of Vue SFC components in vitepress</h6>
 </div>
 
-English | [简体中文](./README.zh-CN.md)
+[简体中文](./README.zh-CN.md)
 
 ## 🎉 Introduce
 
@@ -17,6 +17,7 @@ This project is based on `vitepress` and `markdown-it` implementation to display
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | [@vitepress-demo-preview/component](packages/component) | [![component version](https://badgen.net/npm/v/@vitepress-demo-preview/component)](packages/component/CHANGELOG.md) |
 | [@vitepress-demo-preview/plugin](packages/plugin)       | [![plugin version](https://badgen.net/npm/v/@vitepress-demo-preview/plugin)](packages/plugin/CHANGELOG.md)          |
+| [@vitepress-demo-preview/core](packages/core)           | [![core version](https://badgen.net/npm/v/@vitepress-demo-preview/core)](packages/core/CHANGELOG.md)                |
 
 ## ⚙️ Installation
 

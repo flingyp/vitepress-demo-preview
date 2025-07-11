@@ -3,7 +3,7 @@
 	<h6 align="center">在 vitepress 中预览 Vue SFC 组件</h6>
 </div>
 
-[English](./README.md) | 简体中文
+[English](./README.md)
 
 ## 🎉 简介
 
@@ -17,6 +17,7 @@
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | [@vitepress-demo-preview/component](packages/component) | [![component version](https://badgen.net/npm/v/@vitepress-demo-preview/component)](packages/component/CHANGELOG.md) |
 | [@vitepress-demo-preview/plugin](packages/plugin)       | [![plugin version](https://badgen.net/npm/v/@vitepress-demo-preview/plugin)](packages/plugin/CHANGELOG.md)          |
+| [@vitepress-demo-preview/core](packages/core)           | [![core version](https://badgen.net/npm/v/@vitepress-demo-preview/core)](packages/core/CHANGELOG.md)                |
 
 ## ⚙️ 安装
 

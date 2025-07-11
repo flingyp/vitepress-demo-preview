@@ -1,6 +1,5 @@
 {
   "name": "@vitepress-demo-preview/root",
-  "type": "module",
   "version": "2.0.1",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@10.11.0",
