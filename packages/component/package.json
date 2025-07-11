@@ -50,6 +50,6 @@
   },
   "dependencies": {
     "vue-sonner": "^2.0.1",
-    "@vitepress-demo-preview/core": "workspace:*"
+    "@vitepress-demo-preview/core": "workspace:^"
   }
 }
