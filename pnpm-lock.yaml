@@ -59,6 +59,9 @@ importers:
       '@vitepress-demo-preview/component':
         specifier: workspace:^
         version: link:../packages/component
+      '@vitepress-demo-preview/core':
+        specifier: workspace:^
+        version: link:../packages/core
       '@vitepress-demo-preview/plugin':
         specifier: workspace:^
         version: link:../packages/plugin
@@ -81,6 +84,9 @@ importers:
 
   packages/component:
     dependencies:
+      '@vitepress-demo-preview/core':
+        specifier: workspace:*
+        version: link:../core
       vitepress:
         specifier: '*'
         version: 1.6.3(@algolia/client-search@5.20.1)(@types/node@20.5.1)(postcss@8.5.6)(sass@1.89.2)(search-insights@2.17.3)(sugarss@2.0.0)(typescript@5.7.2)
@@ -103,6 +109,31 @@ importers:
       vue:
         specifier: ^3.2.38
         version: 3.5.17(typescript@5.7.2)
+
+  packages/core:
+    dependencies:
+      '@flypeng/tool':
+        specifier: ^5.3.0
+        version: 5.7.1
+      vitepress:
+        specifier: '*'
+        version: 1.6.3(@algolia/client-search@5.20.1)(@types/node@20.5.1)(postcss@8.5.6)(sass@1.89.2)(search-insights@2.17.3)(sugarss@2.0.0)(typescript@5.7.2)
+      vue:
+        specifier: ^3.2.0
+        version: 3.5.17(typescript@5.7.2)
+    devDependencies:
+      '@rollup/plugin-typescript':
+        specifier: ^8.4.0
+        version: 8.5.0(rollup@2.79.2)(tslib@2.8.1)(typescript@5.7.2)
+      rollup:
+        specifier: ^2.78.1
+        version: 2.79.2
+      rollup-plugin-dts:
+        specifier: ^4.2.2
+        version: 4.2.3(rollup@2.79.2)(typescript@5.7.2)
+      tslib:
+        specifier: ^2.4.0
+        version: 2.8.1
 
   packages/plugin:
     dependencies:
