@@ -4,7 +4,7 @@ import dts from 'rollup-plugin-dts';
 
 export default defineConfig([
   {
-    input: './core/index.ts',
+    input: './index.ts',
     output: [
       {
         file: 'dist/index.cjs',
@@ -15,7 +15,6 @@ export default defineConfig([
         format: 'esm',
       },
     ],
-
     plugins: [
       typescript({
         compilerOptions: { lib: ['esnext'] },
@@ -27,7 +26,7 @@ export default defineConfig([
     },
   },
   {
-    input: './core/index.ts',
+    input: './index.ts',
     output: [{ file: './dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
   },

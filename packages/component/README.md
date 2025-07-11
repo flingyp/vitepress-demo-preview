@@ -27,32 +27,39 @@ pnpm add @vitepress-demo-preview/component @vitepress-demo-preview/plugin
 configure in your vitepress/theme entry file
 
 ```ts
-import DefaultTheme from 'vitepress/theme'
-import { AntDesignContainer, ElementPlusContainer, NaiveUIContainer } from '@vitepress-demo-preview/component'
-import '@vitepress-demo-preview/component/dist/style.css'
+import DefaultTheme from 'vitepress/theme';
+import {
+  AntDesignContainer,
+  ElementPlusContainer,
+  NaiveUIContainer,
+} from '@vitepress-demo-preview/component';
+import '@vitepress-demo-preview/component/dist/style.css';
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: App }) {
-    app.component('demo-preview', AntDesignContainer)
-  }
-}
+    app.component('demo-preview', AntDesignContainer);
+  },
+};
 ```
 
 configure markdown to add plugin
 
 ```ts
-import { defineConfig } from 'vitepress'
-import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
+import { defineConfig } from 'vitepress';
+import {
+  containerPreview,
+  componentPreview,
+} from '@vitepress-demo-preview/plugin';
 
 export default defineConfig({
   markdown: {
     config(md) {
-      md.use(containerPreview)
-      md.use(componentPreview)
-    }
-  }
-})
+      md.use(containerPreview);
+      md.use(componentPreview);
+    },
+  },
+});
 ```
 
 ### SSR Compatibility
@@ -60,8 +67,11 @@ export default defineConfig({
 If the components are not SSR-friendly, you can specify the clientOnly to disable SSR.
 
 ```ts
-import { defineConfig } from 'vitepress'
-import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
+import { defineConfig } from 'vitepress';
+import {
+  containerPreview,
+  componentPreview,
+} from '@vitepress-demo-preview/plugin';
 
 export default defineConfig({
   markdown: {
@@ -71,11 +81,11 @@ export default defineConfig({
        * @link https://vitepress.dev/guide/ssr-compat
        * If the components are not SSR-friendly, you can specify the clientOnly to disable SSR.
        */
-      md.use(containerPreview, { clientOnly: true })
-      md.use(componentPreview, { clientOnly: true })
-    }
-  }
-})
+      md.use(containerPreview, { clientOnly: true });
+      md.use(componentPreview, { clientOnly: true });
+    },
+  },
+});
 ```
 
 ### Alias Configuration
@@ -83,27 +93,27 @@ export default defineConfig({
 If you need to use alias paths, you can configure the alias in the vitepress configuration file.
 
 ```ts
-import { defineConfig } from 'vitepress'
-import { resolve } from 'path'
+import { defineConfig } from 'vitepress';
+import { resolve } from 'path';
 
 const alias = {
-  '@': resolve(__dirname, '../../example')
-}
+  '@': resolve(__dirname, '../../example'),
+};
 
 export default defineConfig({
   // ...
   markdown: {
     config(md) {
-      md.use(componentPreview, { alias })
-      md.use(containerPreview, { alias })
-    }
+      md.use(componentPreview, { alias });
+      md.use(containerPreview, { alias });
+    },
   },
   vite: {
     resolve: {
-      alias
-    }
-  }
-})
+      alias,
+    },
+  },
+});
 ```
 
 ### Preview of Component Form

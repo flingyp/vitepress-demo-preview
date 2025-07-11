@@ -17,6 +17,7 @@
   "dependencies": {
     "@vitepress-demo-preview/component": "workspace:^",
     "@vitepress-demo-preview/plugin": "workspace:^",
+    "@vitepress-demo-preview/core": "workspace:^",
     "vue": "^3.4.38"
   }
 }
