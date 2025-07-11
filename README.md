@@ -3,6 +3,8 @@
 	<h6 align="center">Demo of Vue SFC components in vitepress</h6>
 </div>
 
+English | [简体中文](./README.zh-CN.md)
+
 ## 🎉 Introduce
 
 We can see their component display and code example display from some excellent UI component libraries such as `element-plus` and `Ant Design Vue`
@@ -149,6 +151,26 @@ demo-preview=./xxx/xx.vue
 
 :::
 ```
+
+## 🔧 Configuration
+
+You can customize component behaviors through the `defineClientComponentConfig` function.
+
+```ts
+// .vitepress/theme/index.ts
+import { defineClientComponentConfig } from '@vitepress-demo-preview/core';
+
+// Define custom configuration
+defineClientComponentConfig({
+  copySuccessText: 'Code copied to clipboard!',
+});
+```
+
+### Available Configuration Options
+
+| Option            | Type     | Default      | Description                                     |
+| ----------------- | -------- | ------------ | ----------------------------------------------- |
+| `copySuccessText` | `string` | `'复制成功'` | The text shown when code is successfully copied |
 
 ## 📦 Packages
 
