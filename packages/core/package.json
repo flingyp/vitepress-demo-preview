@@ -1,7 +1,7 @@
 {
   "name": "@vitepress-demo-preview/core",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "core of vitepress-demo-preview",
   "packageManager": "pnpm@7.9.5",
   "main": "./dist/index.cjs",

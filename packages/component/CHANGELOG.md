@@ -1,5 +1,16 @@
 # @vitepress-demo-preview/component
 
+## 2.4.0
+
+### Minor Changes
+
+- 使用 vue-sonner 提示组件
+
+### Patch Changes
+
+- Updated dependencies
+  - @vitepress-demo-preview/core@0.1.0
+
 ## 2.3.2
 
 ### Patch Changes

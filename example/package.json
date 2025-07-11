@@ -2,7 +2,7 @@
   "name": "@vitepress-demo-preview/example",
   "private": "true",
   "type": "module",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
