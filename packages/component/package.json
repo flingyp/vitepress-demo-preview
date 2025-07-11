@@ -1,6 +1,6 @@
 {
   "name": "@vitepress-demo-preview/component",
-  "version": "2.4.0",
+  "version": "2.4.2",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "type": "module",
@@ -50,6 +50,10 @@
   },
   "dependencies": {
     "vue-sonner": "^2.0.1",
-    "@vitepress-demo-preview/core": "workspace:^"
+    "@vitepress-demo-preview/core": "^0.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }

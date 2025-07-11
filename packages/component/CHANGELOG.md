@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.4.2
+
+### Patch Changes
+
+- fix(@vitepress-demo-preview/component): 安装依赖报错问题
+
 ## 2.4.0
 
 ### Minor Changes
