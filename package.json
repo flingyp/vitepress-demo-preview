@@ -18,8 +18,7 @@
     "lint:fix": "prettier . --write && eslint . --fix",
     "copy": "esno ./scripts/copy.ts",
     "prepare": "husky install",
-    "changeset": "changeset",
-    "changeset-version": "changeset version",
+    "changeset": "changeset && changeset version",
     "commit": "git-cz"
   },
   "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",

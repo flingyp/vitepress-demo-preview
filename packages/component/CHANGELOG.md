@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.4.3
+
+### Patch Changes
+
+- 处理点击复制按钮报错问题
+
 ## 2.4.2
 
 ### Patch Changes
