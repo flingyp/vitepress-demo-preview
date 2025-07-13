@@ -1,0 +1,31 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 项目概述
+
+vitepress-demo-preview 是一个用于在 VitePress 文档中预览 Vue SFC 组件的工具。它允许在静态文档中展示组件和代码示例。
+
+## 项目结构
+
+此项目使用 pnpm 工作空间管理多个包：
+
+### 核心包
+
+- [packages/core/index.ts](mdc:packages/core/index.ts) - 核心功能模块，提供基础功能
+- [packages/component/index.ts](mdc:packages/component/index.ts) - 组件库，提供不同风格的预览容器组件
+- [packages/plugin/core/index.ts](mdc:packages/plugin/core/index.ts) - VitePress 插件，处理 Markdown 转换
+
+### 配置文件
+
+- [package.json](mdc:package.json) - 项目主配置文件
+- [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml) - pnpm 工作空间配置
+
+## 使用方法
+
+该插件支持两种组件预览方式：
+1. 组件形式：使用 `<preview>` 标签
+2. 容器形式：使用 `:::preview` 容器
+
+请参考 [README.zh-CN.md](mdc:README.zh-CN.md) 获取详细的使用说明。

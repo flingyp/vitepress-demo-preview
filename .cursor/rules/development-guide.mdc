@@ -1,0 +1,51 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 开发和构建指南
+
+## 项目命令
+
+本项目使用 pnpm 工作空间管理多个包。以下是可用的命令：
+
+### 构建命令
+
+- `pnpm build` - 构建所有包
+- `pnpm core:build` - 仅构建 core 包
+- `pnpm component:build` - 构建 core 和 component 包
+- `pnpm plugin:build` - 构建 core 和 plugin 包
+
+### 开发命令
+
+- `pnpm core:dev` - 以开发模式运行 core 包
+- `pnpm component:dev` - 以开发模式运行 component 包
+- `pnpm plugin:dev` - 以开发模式运行 plugin 包
+- `pnpm example:dev` - 以开发模式运行示例项目
+
+### 示例项目
+
+- `pnpm example:dev` - 运行示例项目
+- `pnpm example:build` - 构建示例项目
+- `pnpm example:serve` - 在本地服务器上预览构建后的示例项目
+
+### 代码质量和版本控制
+
+- `pnpm lint` - 运行代码格式化和 ESLint 检查
+- `pnpm lint:fix` - 修复代码格式和 ESLint 问题
+- `pnpm changeset` - 创建变更集并更新版本
+- `pnpm commit` - 使用 git-cz 进行规范化提交
+
+## 开发流程
+
+1. 修改代码
+2. 运行 `pnpm lint:fix` 确保代码质量
+3. 使用 `pnpm commit` 提交更改
+4. 使用 `pnpm changeset` 创建变更记录
+5. 提交 PR 或合并到主分支
+
+## 注意事项
+
+1. 安装第三方项目依赖使用 PNPM 包管理工具
+2. 每一次修改代码完成以后，运行 `pnpm run lint:fx` 命令，修复所有 Lint 错误后才算结束
+

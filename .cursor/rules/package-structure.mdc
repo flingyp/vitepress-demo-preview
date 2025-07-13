@@ -1,0 +1,44 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 包结构说明
+
+vitepress-demo-preview 项目分为三个主要的包：
+
+## Core 包
+
+路径: [packages/core](mdc:packages/core)
+
+提供了插件的核心功能和工具函数。主要负责：
+- 定义类型和接口
+- 提供客户端配置工具
+
+## Component 包
+
+路径: [packages/component](mdc:packages/component)
+
+提供了不同风格的演示容器组件。主要特点：
+- 提供三种风格的容器组件：
+  - Ant Design 风格
+  - Element Plus 风格
+  - Naive UI 风格
+- 包含公共样式和图标
+
+## Plugin 包
+
+路径: [packages/plugin](mdc:packages/plugin)
+
+提供了 Markdown-it 插件，用于转换 Markdown 中的预览标记为组件。主要功能：
+- 容器形式预览转换
+- 组件形式预览转换
+- 支持别名路径配置
+
+## 示例项目
+
+路径: [example](mdc:example)
+
+提供了插件使用的示例和文档。用于：
+- 展示插件的使用方法
+- 作为开发环境进行测试

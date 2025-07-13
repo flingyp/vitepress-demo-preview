@@ -1,0 +1,62 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 组件使用指南
+
+## 可用容器组件
+
+vitepress-demo-preview 提供了三种风格的容器组件：
+
+1. **Ant Design 风格**: `AntDesignContainer`
+2. **Element Plus 风格**: `ElementPlusContainer`
+3. **Naive UI 风格**: `NaiveUIContainer`
+
+## 组件集成方式
+
+### VitePress 主题配置
+
+在 VitePress 主题配置文件中，需要导入并注册组件：
+
+```ts
+import { AntDesignContainer, ElementPlusContainer, NaiveUIContainer } from '@vitepress-demo-preview/component';
+import '@vitepress-demo-preview/component/dist/style.css';
+
+export default {
+  // ...其他配置
+  enhanceApp({ app }) {
+    // 选择一种容器风格注册为 'demo-preview' 组件
+    app.component('demo-preview', AntDesignContainer);
+  }
+}
+```
+
+### Markdown 插件配置
+
+在 VitePress 配置文件中添加 Markdown 插件：
+
+```ts
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin';
+
+export default defineConfig({
+  markdown: {
+    config(md) {
+      md.use(containerPreview);
+      md.use(componentPreview);
+    }
+  }
+})
+```
+
+## 自定义配置
+
+可以使用 `defineClientComponentConfig` 函数自定义组件行为：
+
+```ts
+import { defineClientComponentConfig } from '@vitepress-demo-preview/core';
+
+defineClientComponentConfig({
+  copySuccessText: '代码已复制到剪贴板！'
+});
+```
