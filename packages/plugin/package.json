@@ -41,15 +41,15 @@
     "vue": "^3.2.0"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.4.0",
-    "@types/markdown-it": "^14.1.1",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-container": "^2.0.10",
-    "rollup": "^2.78.1",
-    "rollup-plugin-dts": "^4.2.2",
-    "tslib": "^2.4.0"
+    "rollup": "^2.79.2",
+    "rollup-plugin-dts": "^4.2.3",
+    "tslib": "^2.8.1"
   },
   "dependencies": {
-    "@flypeng/tool": "^5.3.0",
+    "@flypeng/tool": "^5.7.1",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0"
   }

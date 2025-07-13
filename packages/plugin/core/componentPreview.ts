@@ -1,4 +1,3 @@
- 
 import MarkdownIt, { Token } from 'markdown-it';
 import { resolve, dirname } from 'path';
 import { readFileSync } from 'fs';
@@ -51,7 +50,6 @@ export const transformPreview = (
     throw new Error(
       '@vitepress-demo-preview/plugin: path is a required parameter',
     );
-   
 
   // 组件路径（相对路径｜别名路径）
   componentProps.path = pathRegexValue[1];
