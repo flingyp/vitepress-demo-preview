@@ -1,5 +1,12 @@
 # @vitepress-demo-preview/component
 
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @vitepress-demo-preview/core@0.2.0
+
 ## 2.5.0
 
 ### Minor Changes

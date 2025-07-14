@@ -1,6 +1,6 @@
 {
   "name": "@vitepress-demo-preview/component",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "type": "module",
@@ -49,7 +49,7 @@
     "vue": "^3.5.17"
   },
   "dependencies": {
-    "@vitepress-demo-preview/core": "^0.1.0",
+    "@vitepress-demo-preview/core": "^0.2.0",
     "floating-vue": "^5.2.2",
     "vue-sonner": "^2.0.1"
   },
