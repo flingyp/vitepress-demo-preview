@@ -11,7 +11,6 @@
 - Updated dependencies
   - @vitepress-demo-preview/component@2.5.0
   - @vitepress-demo-preview/plugin@2.5.0
-  - @vitepress-demo-preview/core@0.2.0
 
 ## 1.0.28
 
