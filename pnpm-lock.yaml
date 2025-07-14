@@ -87,6 +87,9 @@ importers:
       '@vitepress-demo-preview/core':
         specifier: ^0.1.0
         version: 0.1.0(vitepress@1.6.3(@algolia/client-search@5.32.0)(@types/node@20.5.1)(postcss@8.5.6)(sass@1.89.2)(search-insights@2.17.3)(sugarss@2.0.0)(typescript@5.8.2))(vue@3.5.17(typescript@5.8.2))
+      floating-vue:
+        specifier: ^5.2.2
+        version: 5.2.2(vue@3.5.17(typescript@5.8.2))
       vitepress:
         specifier: '*'
         version: 1.6.3(@algolia/client-search@5.32.0)(@types/node@20.5.1)(postcss@8.5.6)(sass@1.89.2)(search-insights@2.17.3)(sugarss@2.0.0)(typescript@5.8.2)
@@ -879,6 +882,15 @@ packages:
   '@eslint/plugin-kit@0.3.3':
     resolution: {integrity: sha512-1+WqvgNMhmlAambTvT3KPtCl/Ibr68VldY2XY40SL1CE0ZXiakFR/cbTspaF5HsnpDMvcYYoJHfl4980NBjGag==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@floating-ui/core@1.7.2':
+    resolution: {integrity: sha512-wNB5ooIKHQc+Kui96jE/n69rHFWAVoxn5CAzL1Xdd8FG03cgY3MLO+GF9U3W737fYDSgPWA6MReKhBQBop6Pcw==}
+
+  '@floating-ui/dom@1.1.1':
+    resolution: {integrity: sha512-TpIO93+DIujg3g7SykEAGZMDtbJRrmnYRCNYSjJlvIbGhBjRSNTLVbNeDQBrzy9qDgUbiWdc7KA0uZHZ2tJmiw==}
+
+  '@floating-ui/utils@0.2.10':
+    resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
   '@flypeng/eslint-config-basic@2.0.5':
     resolution: {integrity: sha512-/3QLA8ZnOs9SjFa6SosgRNdlF5+w7uRapVmmmEjzddz62J3m904NZ9cfB3wfeb84QQUJlpB1EOuYFe7hCYRahg==}
@@ -2617,6 +2629,15 @@ packages:
   flatted@3.3.3:
     resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
 
+  floating-vue@5.2.2:
+    resolution: {integrity: sha512-afW+h2CFafo+7Y9Lvw/xsqjaQlKLdJV7h1fCHfcYQ1C4SVMlu7OAekqWgu5d4SgvkBVU0pVpLlVsrSTBURFRkg==}
+    peerDependencies:
+      '@nuxt/kit': ^3.2.0
+      vue: ^3.2.0
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+
   focus-trap@7.6.5:
     resolution: {integrity: sha512-7Ke1jyybbbPZyZXFxEftUtxFGLMpE2n6A+z//m4CRDlj0hW+o3iYSmh8nFlYMurOiJVDmJRilUQtJr08KfIxlg==}
 
@@ -4329,6 +4350,11 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
+  vue-resize@2.0.0-alpha.1:
+    resolution: {integrity: sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg==}
+    peerDependencies:
+      vue: ^3.0.0
+
   vue-sonner@2.0.1:
     resolution: {integrity: sha512-sn4vjCRzRcnMaxaLa9aNSyZQi6S+gshiea5Lc3eqpkj0ES9LH8ljg+WJCkxefr28V4PZ9xkUXBIWpxGfQxstIg==}
 
@@ -5261,6 +5287,16 @@ snapshots:
     dependencies:
       '@eslint/core': 0.15.1
       levn: 0.4.1
+
+  '@floating-ui/core@1.7.2':
+    dependencies:
+      '@floating-ui/utils': 0.2.10
+
+  '@floating-ui/dom@1.1.1':
+    dependencies:
+      '@floating-ui/core': 1.7.2
+
+  '@floating-ui/utils@0.2.10': {}
 
   '@flypeng/eslint-config-basic@2.0.5(eslint@9.31.0(jiti@2.4.2))':
     dependencies:
@@ -7209,6 +7245,12 @@ snapshots:
 
   flatted@3.3.3: {}
 
+  floating-vue@5.2.2(vue@3.5.17(typescript@5.8.2)):
+    dependencies:
+      '@floating-ui/dom': 1.1.1
+      vue: 3.5.17(typescript@5.8.2)
+      vue-resize: 2.0.0-alpha.1(vue@3.5.17(typescript@5.8.2))
+
   focus-trap@7.6.5:
     dependencies:
       tabbable: 6.2.0
@@ -9042,6 +9084,10 @@ snapshots:
       semver: 7.7.2
     transitivePeerDependencies:
       - supports-color
+
+  vue-resize@2.0.0-alpha.1(vue@3.5.17(typescript@5.8.2)):
+    dependencies:
+      vue: 3.5.17(typescript@5.8.2)
 
   vue-sonner@2.0.1: {}
 

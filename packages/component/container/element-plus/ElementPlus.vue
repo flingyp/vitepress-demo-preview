@@ -8,6 +8,8 @@ import { useCodeFold } from '../../hooks/use-codefold';
 import { useCodeCopy } from '../../hooks/use-codecopy';
 import { Toaster } from 'vue-sonner';
 import 'vue-sonner/style.css';
+import { Tooltip } from 'floating-vue';
+import 'floating-vue/dist/style.css';
 
 interface DemoBlockProps {
   code: string;
@@ -61,9 +63,18 @@ watch(isCodeFold, () => {
     <section :class="[ns.bem('description')]">
       <div :class="[ns.bem('description', 'split-line')]"></div>
       <div :class="[ns.bem('description', 'handle-btn')]">
-        <CodeClose v-if="!isCodeFold" @click="setCodeFold(true)" />
-        <CodeOpen v-else @click="setCodeFold(false)" />
-        <CodeCopy @click="clickCodeCopy" />
+        <Tooltip placement="bottom">
+          <CodeCopy @click="clickCodeCopy" />
+          <template #popper> 复制代码 </template>
+        </Tooltip>
+        <Tooltip v-if="!isCodeFold" placement="bottom">
+          <CodeClose @click="setCodeFold(true)" />
+          <template #popper> 折叠代码 </template>
+        </Tooltip>
+        <Tooltip v-else placement="bottom">
+          <CodeOpen @click="setCodeFold(false)" />
+          <template #popper> 展开代码 </template>
+        </Tooltip>
       </div>
     </section>
     <section :class="[ns.bem('source')]" ref="sourceCodeArea">

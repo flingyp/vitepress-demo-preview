@@ -1,0 +1,14 @@
+.v-popper {
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    color: var(--component-preview-text-1);
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.v-popper:not(:last-of-type) {
+  margin-right: 10px;
+}

@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@vitepress-demo-preview/core": "^0.1.0",
+    "floating-vue": "^5.2.2",
     "vue-sonner": "^2.0.1"
   },
   "publishConfig": {

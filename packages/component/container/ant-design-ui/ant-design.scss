@@ -1,4 +1,5 @@
 @import '../../styles/various.scss';
+@import '../../styles/common.scss';
 
 $componentPrefix: 'ant-design';
 $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
@@ -12,15 +13,14 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
     margin-top: 0;
     margin-bottom: 0;
     border-radius: 0;
-    background-color: var(--component-preview-bg);
+    background-color: var(--vp-code-block-bg);
   }
 }
 
 .#{$containerPrefix}__container {
   width: 100%;
   border-radius: 4px;
-  border: 1px solid var(--component-preview-border);
-  box-shadow: 0px 0px 10px var(--component-preview-border);
+  border: 1px solid var(--vp-c-divider);
   margin: 10px 0;
   overflow: hidden;
 
@@ -50,7 +50,7 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
       content: '';
       position: absolute;
       width: 3%;
-      border-top: 1px solid var(--component-preview-border);
+      border-top: 1px solid var(--vp-c-divider);
       top: 12px;
       left: 0;
     }
@@ -59,7 +59,7 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
       content: '';
       position: absolute;
       width: 100%;
-      border-top: 1px solid var(--component-preview-border);
+      border-top: 1px solid var(--vp-c-divider);
       top: 12px;
       margin-left: 5px;
     }
@@ -70,7 +70,7 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
   }
 
   .#{$defaultPrefix}-description__split-line {
-    border-bottom: 1px dashed var(--component-preview-border);
+    border-bottom: 1px dashed var(--vp-c-divider);
   }
 
   .#{$defaultPrefix}-description__handle-btn {
@@ -80,18 +80,6 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
     display: flex;
     align-items: center;
     justify-content: center;
-
-    svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-      color: var(--component-preview-text-1);
-      cursor: pointer;
-    }
-
-    svg:not(:last-of-type) {
-      margin-right: 8px;
-    }
   }
 }
 
