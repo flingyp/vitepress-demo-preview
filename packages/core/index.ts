@@ -1,11 +1,15 @@
+import type { App } from 'vue';
+
 // 配置文件接口
 export interface ClientComponentConfig {
   copySuccessText?: string;
+  vueApp?: App<any>;
 }
 
 // 默认配置
 const defaultConfig: ClientComponentConfig = {
   copySuccessText: '复制成功',
+  vueApp: undefined,
 };
 
 /**

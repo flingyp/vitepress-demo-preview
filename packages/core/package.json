@@ -3,13 +3,13 @@
   "type": "module",
   "version": "0.1.0",
   "description": "core of vitepress-demo-preview",
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@10.11.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
@@ -19,8 +19,8 @@
     "package.json"
   ],
   "scripts": {
-    "dev": "rollup --config rollup.config.ts --watch",
-    "build": "rollup --config rollup.config.ts"
+    "dev": "tsup --watch --sourcemap",
+    "build": "tsup --minify"
   },
   "homepage": "https://github.com/flingyp/vitepress-demo-preview#readme",
   "repository": {
@@ -35,15 +35,10 @@
   ],
   "author": "FlyPeng",
   "license": "MIT",
-  "peerDependencies": {
+  "devDependencies": {
+    "tsup": "^8.5.0",
     "vitepress": "*",
     "vue": "^3.2.0"
-  },
-  "devDependencies": {
-    "@rollup/plugin-typescript": "^8.5.0",
-    "rollup": "^2.79.2",
-    "rollup-plugin-dts": "^4.2.3",
-    "tslib": "^2.8.1"
   },
   "dependencies": {
     "@flypeng/tool": "^5.7.1"
