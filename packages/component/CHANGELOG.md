@@ -1,5 +1,16 @@
 # @vitepress-demo-preview/component
 
+## 2.5.0
+
+### Minor Changes
+
+- 添加 floating-vue 依赖并更新样式，优化组件交互
+
+### Patch Changes
+
+- Updated dependencies
+  - @vitepress-demo-preview/core@0.2.0
+
 ## 2.4.3
 
 ### Patch Changes
