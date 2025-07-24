@@ -19,9 +19,12 @@ export default defineConfig({
         link: 'https://github.com/flingyp/vitepress-demo-preview',
       },
     ],
-    // search: {
-    //   provider: 'local'
-    // }
+    nav: [
+      {
+        text: 'Vitepress Plugin Legend',
+        link: 'https://github.com/flingyp/vitepress-plugin-legend',
+      },
+    ],
   },
   description: 'Just playing around.',
   markdown: {
