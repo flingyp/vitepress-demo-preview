@@ -1,0 +1,1 @@
+import{d as o,p as s,G as e,a as n,F as r}from"./framework.BXdKinYl.js";const u=o({setup(){const t=s(0),a=()=>{t.value+=2};return()=>e(r,null,[e("div",{class:"container-preview"},[e("p",null,[n("Container Form")]),e("div",null,[e("span",null,[n("Count: "),t.value]),e("button",{onClick:a,class:"btn"},[n("Button")])])])])}});export{u as default};
