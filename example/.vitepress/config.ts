@@ -12,6 +12,39 @@ const alias = {
 export default defineConfig({
   base: '/vitepress-demo-preview',
   title: 'vitepress-demo-preview',
+  description: 'Just playing around.',
+
+  locales: {
+    root: {
+      label: '简体中文',
+      lang: 'zh-CN',
+      title: 'VitePress 组件预览插件',
+      description: '一个强大的 VitePress 组件预览插件',
+      themeConfig: {
+        nav: [
+          {
+            text: 'Vitepress Plugin Legend',
+            link: 'https://github.com/flingyp/vitepress-plugin-legend',
+          },
+        ],
+      },
+    },
+    en: {
+      label: 'English',
+      lang: 'en-US',
+      title: 'VitePress Component Preview Plugin',
+      description: 'A powerful VitePress component preview plugin',
+      themeConfig: {
+        nav: [
+          {
+            text: 'Vitepress Plugin Legend',
+            link: 'https://github.com/flingyp/vitepress-plugin-legend',
+          },
+        ],
+      },
+    },
+  },
+
   themeConfig: {
     socialLinks: [
       {
@@ -19,14 +52,7 @@ export default defineConfig({
         link: 'https://github.com/flingyp/vitepress-demo-preview',
       },
     ],
-    nav: [
-      {
-        text: 'Vitepress Plugin Legend',
-        link: 'https://github.com/flingyp/vitepress-plugin-legend',
-      },
-    ],
   },
-  description: 'Just playing around.',
   markdown: {
     theme: {
       light: 'vitesse-light',
