@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/plugin
 
+## 2.5.2
+
+### Patch Changes
+
+- chore(package): 在组件和插件的 package.json 中添加 types 字段以支持 TypeScript 类型定义
+
 ## 1.4.0
 
 ### Minor Changes

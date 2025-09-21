@@ -1,6 +1,6 @@
 {
   "name": "@vitepress-demo-preview/component",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "preview component of code and component in vitepress",
   "packageManager": "pnpm@7.9.5",
   "type": "module",
@@ -9,6 +9,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/preview-component.js",
       "require": "./dist/preview-component.umd.cjs"
     },
