@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/core
 
+## 0.3.0
+
+### Minor Changes
+
+- feat(component): 新增隐藏源代码按钮、支持国际化配置组件文本
+
 ## 0.2.0
 
 ### Minor Changes
