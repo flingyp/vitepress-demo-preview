@@ -22,7 +22,6 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
   border-radius: 4px;
   border: 1px solid var(--vp-c-divider);
   margin: 10px 0;
-  overflow: hidden;
 
   .#{$defaultPrefix}-preview,
   .#{$defaultPrefix}-description,
@@ -84,4 +83,43 @@ $containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
 .#{$containerPrefix}__container > .#{$defaultPrefix}-source {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+}
+
+.#{$defaultPrefix}-bottom-close-button {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--vp-c-bg);
+  border-top: 1px solid var(--vp-c-divider);
+  border-radius: 0 0 8px 8px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  margin-top: -1px; // 确保与代码块无缝连接
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--vp-c-text-1);
+    flex-shrink: 0;
+  }
+
+  span {
+    font-size: 14px;
+    color: var(--vp-c-text-1);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background: var(--vp-c-bg-soft);
+  }
 }
