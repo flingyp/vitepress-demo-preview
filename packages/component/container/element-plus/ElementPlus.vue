@@ -6,6 +6,7 @@ import CodeCopy from '../../icons/code-copy.vue';
 import { useNameSpace } from '../../hooks/use-namespaces';
 import { useCodeFold } from '../../hooks/use-codefold';
 import { useCodeCopy } from '../../hooks/use-codecopy';
+import { useI18n } from '../../hooks/use-i18n';
 import { Toaster } from 'vue-sonner';
 import 'vue-sonner/style.css';
 import { Tooltip } from 'floating-vue';
@@ -26,6 +27,7 @@ const props = withDefaults(defineProps<DemoBlockProps>(), {
 const ns = useNameSpace();
 const { isCodeFold, setCodeFold } = useCodeFold();
 const { clickCopy } = useCodeCopy();
+const { t } = useI18n();
 
 const sourceCode = ref(decodeURIComponent(props.code));
 const showSourceCode = ref(decodeURIComponent(props.showCode));
@@ -116,15 +118,15 @@ watch(isCodeFold, () => {
       <div :class="[ns.bem('description', 'handle-btn')]">
         <Tooltip placement="bottom">
           <CodeCopy @click="clickCodeCopy" />
-          <template #popper> 复制代码 </template>
+          <template #popper>{{ t('copyCode') }}</template>
         </Tooltip>
         <Tooltip v-if="!isCodeFold" placement="bottom">
           <CodeClose @click="setCodeFold(true)" />
-          <template #popper> 折叠代码 </template>
+          <template #popper>{{ t('foldCode') }}</template>
         </Tooltip>
         <Tooltip v-else placement="bottom">
           <CodeOpen @click="setCodeFold(false)" />
-          <template #popper> 展开代码 </template>
+          <template #popper>{{ t('expandCode') }}</template>
         </Tooltip>
       </div>
     </section>
