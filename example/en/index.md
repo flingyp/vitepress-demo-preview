@@ -73,8 +73,64 @@ demo-preview=./components/ContainerTsxPreview.tsx
 
 ## Configuration Options
 
+### Component Preview Configuration
+
 | Parameter         | Description     | Type   | Default Value   |
 | ----------------- | --------------- | ------ | --------------- |
 | path/demo-preview | Component path  | string | -               |
 | title             | Component title | string | 'Default Title' |
 | description       | Component desc  | string | 'Description'   |
+
+### Internationalization Configuration
+
+The plugin supports configuring internationalization options through the `defineClientComponentConfig` function:
+
+```ts
+// .vitepress/theme/index.ts
+import { defineClientComponentConfig } from '@vitepress-demo-preview/core';
+
+// Define internationalization configuration
+defineClientComponentConfig({
+  vueApp: app,
+  // Internationalization configuration
+  i18n: {
+    zh: {
+      copySuccessText: '代码已复制到剪贴板！',
+      copyCode: 'Copy code',
+      foldCode: 'Fold code',
+      expandCode: 'Expand code',
+      hideSourceCode: 'Hide source code',
+    },
+    en: {
+      copySuccessText: 'Code copied to clipboard!',
+      copyCode: '复制代码',
+      foldCode: '折叠代码',
+      expandCode: '展开代码',
+      hideSourceCode: '隐藏源代码',
+    },
+  },
+  // Set default language
+  defaultLanguage: 'en',
+});
+```
+
+#### Global Configuration Options
+
+| Option            | Type     | Default      | Description                                               |
+| ----------------- | -------- | ------------ | --------------------------------------------------------- |
+| `copySuccessText` | `string` | `'复制成功'`  | The text shown when code is successfully copied (deprecated, use i18n instead) |
+| `i18n`            | `object` | `undefined`  | Internationalization configuration object                  |
+| `defaultLanguage` | `string` | `'zh'`       | Default language when no locale is detected               |
+| `vueApp`          | `App`    | `undefined`  | Vue application instance                                  |
+
+#### Supported i18n Text Keys
+
+| Key              | Description                          |
+| ---------------- | ------------------------------------ |
+| `copySuccessText` | Text shown on successful code copy   |
+| `copyCode`        | Tooltip text for copy button        |
+| `foldCode`        | Tooltip text for fold button        |
+| `expandCode`      | Tooltip text for expand button      |
+| `hideSourceCode`  | Text for hide source code button    |
+
+The plugin automatically detects the current language based on the URL path and displays the corresponding text.

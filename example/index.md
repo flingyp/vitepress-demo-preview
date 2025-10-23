@@ -73,8 +73,64 @@ demo-preview=./components/ContainerTsxPreview.tsx
 
 ## 配置选项
 
+### 组件预览配置
+
 | 参数              | 说明     | 类型   | 默认值     |
 | ----------------- | -------- | ------ | ---------- |
 | path/demo-preview | 组件路径 | string | -          |
 | title             | 组件标题 | string | '默认标题' |
 | description       | 组件描述 | string | '描述内容' |
+
+### 国际化配置
+
+插件支持通过 `defineClientComponentConfig` 函数配置国际化选项：
+
+```ts
+// .vitepress/theme/index.ts
+import { defineClientComponentConfig } from '@vitepress-demo-preview/core';
+
+// 定义国际化配置
+defineClientComponentConfig({
+  vueApp: app,
+  // 国际化配置
+  i18n: {
+    zh: {
+      copySuccessText: '代码已复制到剪贴板！',
+      copyCode: '复制代码',
+      foldCode: '折叠代码',
+      expandCode: '展开代码',
+      hideSourceCode: '隐藏源代码',
+    },
+    en: {
+      copySuccessText: 'Code copied to clipboard!',
+      copyCode: 'Copy code',
+      foldCode: 'Fold code',
+      expandCode: 'Expand code',
+      hideSourceCode: 'Hide source code',
+    },
+  },
+  // 设置默认语言
+  defaultLanguage: 'zh',
+});
+```
+
+#### 全局配置选项
+
+| 选项              | 类型     | 默认值       | 描述                                           |
+| ----------------- | -------- | ------------ | ---------------------------------------------- |
+| `copySuccessText` | `string` | `'复制成功'` | 代码成功复制时显示的文本（已弃用，请使用 i18n）        |
+| `i18n`            | `object` | `undefined`  | 国际化配置对象                                  |
+| `defaultLanguage` | `string` | `'zh'`       | 未检测到语言环境时的默认语言                     |
+| `vueApp`          | `App`    | `undefined`  | Vue 应用实例                                    |
+
+#### 支持的 i18n 文本键
+
+| 键               | 描述                     |
+| ---------------- | ------------------------ |
+| `copySuccessText` | 代码复制成功时显示的文本 |
+| `copyCode`        | 复制按钮的提示文本       |
+| `foldCode`        | 折叠按钮的提示文本       |
+| `expandCode`      | 展开按钮的提示文本       |
+| `hideSourceCode`  | 隐藏源代码按钮的文本     |
+
+插件会自动根据 URL 路径检测当前语言并显示对应的文本。
