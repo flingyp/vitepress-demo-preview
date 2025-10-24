@@ -1,5 +1,12 @@
 # @vitepress-demo-preview/example
 
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @vitepress-demo-preview/component@2.6.1
+
 ## 1.1.3
 
 ### Patch Changes

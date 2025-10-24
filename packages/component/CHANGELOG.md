@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.6.1
+
+### Patch Changes
+
+- fix(component): @vitepress-demo-preview/core 确认版本号
+
 ## 2.6.0
 
 ### Minor Changes
