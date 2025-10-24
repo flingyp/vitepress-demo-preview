@@ -50,7 +50,7 @@
     "vue": "^3.5.17"
   },
   "dependencies": {
-    "@vitepress-demo-preview/core": "workspace:^",
+    "@vitepress-demo-preview/core": "^0.3.0",
     "floating-vue": "^5.2.2",
     "vue-sonner": "^2.0.1"
   },
