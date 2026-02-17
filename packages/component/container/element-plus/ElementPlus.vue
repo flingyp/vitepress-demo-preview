@@ -146,7 +146,7 @@ watch(isCodeFold, () => {
       "
     >
       <CodeClose />
-      <span>隐藏源代码</span>
+      <span>{{ t('hideSourceCode') }}</span>
     </div>
   </div>
 
