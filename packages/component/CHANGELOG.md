@@ -1,5 +1,11 @@
 # @vitepress-demo-preview/component
 
+## 2.6.2
+
+### Patch Changes
+
+- fix(component): 统一底部关闭按钮的国际化处理
+
 ## 2.6.1
 
 ### Patch Changes
